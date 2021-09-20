@@ -434,6 +434,12 @@
     <Compile Include="UI\Controls\HeadlessTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\Forms\OptionsPages\IconsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\OptionsPages\IconsPage.Designer.cs">
+      <DependentUpon>IconsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ISelectionTarget.cs" />
     <Compile Include="UI\Controls\MrngIpTextBox.cs">
       <SubType>UserControl</SubType>
@@ -987,6 +993,9 @@
     <EmbeddedResource Include="UI\Forms\FrmUnhandledException.resx">
       <DependentUpon>FrmUnhandledException.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Forms\OptionsPages\IconsPage.resx">
+      <DependentUpon>IconsPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Tabs\ConnectionTab.resx">
       <DependentUpon>ConnectionTab.cs</DependentUpon>
     </EmbeddedResource>
@@ -1173,6 +1182,8 @@
     <Content Include="PuTTYNG.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Icons_16x.bmp" />
+    <None Include="Resources\IconsEditor_16px.bmp" />
     <Content Include="Schemas\mremoteng_confcons_v2_6.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -2451,7 +2451,16 @@ namespace mRemoteNG.Resources.Language
                 return ResourceManager.GetString("Icon", resourceCulture);
             }
         }
-        
+        /// <summary>
+        ///   Symbolseite.
+        /// </summary>
+        internal static string Icons
+        {
+            get
+            {
+                return ResourceManager.GetString("Icons", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Identify quick connect tabs by adding the prefix &quot;Quick:&quot; ähnelt.
         /// </summary>

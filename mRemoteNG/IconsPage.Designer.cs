@@ -32,9 +32,9 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 		//Do not modify it using the code editor.
 		[System.Diagnostics.DebuggerStepThrough()]private void InitializeComponent()
 		{
-            this.btnThemeDelete = new mRemoteNG.UI.Controls.MrngButton();
-            this.btnThemeNew = new mRemoteNG.UI.Controls.MrngButton();
-            this.cboTheme = new mRemoteNG.UI.Controls.MrngComboBox();
+            this.btnThemeDelete = new MrngButton();
+            this.btnThemeNew = new MrngButton();
+            this.cboTheme = new MrngComboBox();
             this.listPalette = new mRemoteNG.UI.Controls.MrngListView();
             this.keyCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.ColorCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
@@ -51,7 +51,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             // 
             // btnThemeDelete
             // 
-            this.btnThemeDelete._mice = mRemoteNG.UI.Controls.MrngButton.MouseState.OUT;
+            this.btnThemeDelete._mice = MrngButton.MouseState.OUT;
             this.btnThemeDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnThemeDelete.Location = new System.Drawing.Point(507, 3);
             this.btnThemeDelete.Name = "btnThemeDelete";
@@ -63,7 +63,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             // 
             // btnThemeNew
             // 
-            this.btnThemeNew._mice = mRemoteNG.UI.Controls.MrngButton.MouseState.OUT;
+            this.btnThemeNew._mice = MrngButton.MouseState.OUT;
             this.btnThemeNew.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnThemeNew.Location = new System.Drawing.Point(407, 3);
             this.btnThemeNew.Name = "btnThemeNew";
@@ -75,7 +75,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             // 
             // cboTheme
             // 
-            this.cboTheme._mice = mRemoteNG.UI.Controls.MrngComboBox.MouseState.HOVER;
+            this.cboTheme._mice = MrngComboBox.MouseState.HOVER;
             this.cboTheme.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTheme.FormattingEnabled = true;
@@ -108,7 +108,6 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.listPalette.UseCellFormatEvents = true;
             this.listPalette.UseCompatibleStateImageBehavior = false;
             this.listPalette.View = System.Windows.Forms.View.Details;
-            this.listPalette.SelectedIndexChanged += new System.EventHandler(this.listPalette_SelectedIndexChanged);
             // 
             // keyCol
             // 

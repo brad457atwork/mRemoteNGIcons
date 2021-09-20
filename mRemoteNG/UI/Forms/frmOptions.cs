@@ -79,6 +79,7 @@ namespace mRemoteNG.UI.Forms
                 {typeof(CredentialsPage).Name, new CredentialsPage {Dock = DockStyle.Fill}},
                 {typeof(SqlServerPage).Name, new SqlServerPage {Dock = DockStyle.Fill}},
                 {typeof(UpdatesPage).Name, new UpdatesPage {Dock = DockStyle.Fill}},
+                {typeof(IconsPage).Name, new IconsPage {Dock = DockStyle.Fill}},
                 {typeof(ThemePage).Name, new ThemePage {Dock = DockStyle.Fill}},
                 {typeof(SecurityPage).Name, new SecurityPage {Dock = DockStyle.Fill}},
                 {typeof(AdvancedPage).Name, new AdvancedPage {Dock = DockStyle.Fill}},

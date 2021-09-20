@@ -218,5 +218,10 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         #endregion
 
         #endregion
+
+        private void listPalette_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

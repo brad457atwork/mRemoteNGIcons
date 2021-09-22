@@ -4,7 +4,7 @@ using Microsoft.Web.WebView2.WinForms;
 using mRemoteNG.Tools;
 using mRemoteNG.App;
 using mRemoteNG.UI.Tabs;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 
 namespace mRemoteNG.Connection.Protocol.Http

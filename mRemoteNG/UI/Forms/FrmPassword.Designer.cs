@@ -1,5 +1,5 @@
 ﻿using mRemoteNG.UI.Controls;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Forms
 {

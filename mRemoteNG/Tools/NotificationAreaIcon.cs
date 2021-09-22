@@ -6,7 +6,7 @@ using mRemoteNG.Connection;
 using mRemoteNG.Container;
 using mRemoteNG.Properties;
 using mRemoteNG.UI.Forms;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 
 namespace mRemoteNG.Tools

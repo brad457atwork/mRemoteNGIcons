@@ -11,7 +11,7 @@ using mRemoteNG.Messages;
 using mRemoteNG.Tools;
 using mRemoteNG.Tree.Root;
 using WeifenLuo.WinFormsUI.Docking;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Window
 {

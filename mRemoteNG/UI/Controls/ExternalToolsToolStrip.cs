@@ -5,7 +5,7 @@ using mRemoteNG.App;
 using mRemoteNG.Messages;
 using mRemoteNG.Tools;
 using mRemoteNG.Tree;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Controls
 {

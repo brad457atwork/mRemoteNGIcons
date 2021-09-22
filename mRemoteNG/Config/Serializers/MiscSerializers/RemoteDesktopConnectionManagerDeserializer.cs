@@ -9,7 +9,7 @@ using mRemoteNG.Connection.Protocol.RDP;
 using mRemoteNG.Container;
 using mRemoteNG.Tree;
 using mRemoteNG.Tree.Root;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.Config.Serializers.MiscSerializers
 {

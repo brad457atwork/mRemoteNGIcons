@@ -16,7 +16,7 @@ using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 // ReSharper disable ArrangeAccessorOwnerBody
 

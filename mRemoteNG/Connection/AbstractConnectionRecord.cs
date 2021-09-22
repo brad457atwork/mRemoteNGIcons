@@ -7,7 +7,7 @@ using mRemoteNG.Connection.Protocol.VNC;
 using mRemoteNG.Properties;
 using mRemoteNG.Tools;
 using mRemoteNG.Tools.Attributes;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 
 namespace mRemoteNG.Connection

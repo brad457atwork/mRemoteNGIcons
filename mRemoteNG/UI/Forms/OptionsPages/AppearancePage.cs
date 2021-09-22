@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using mRemoteNG.App;
 using mRemoteNG.Properties;
 using mRemoteNG.Tools;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {

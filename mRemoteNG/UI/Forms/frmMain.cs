@@ -30,7 +30,7 @@ using mRemoteNG.UI.Panels;
 using WeifenLuo.WinFormsUI.Docking;
 using mRemoteNG.UI.Controls;
 using Settings = mRemoteNG.Properties.Settings;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 // ReSharper disable MemberCanBePrivate.Global
 

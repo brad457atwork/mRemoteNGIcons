@@ -9,7 +9,7 @@ using WeifenLuo.WinFormsUI.Docking;
 using mRemoteNG.UI.Forms;
 using mRemoteNG.Themes;
 using mRemoteNG.Tools.CustomCollections;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Window
 {

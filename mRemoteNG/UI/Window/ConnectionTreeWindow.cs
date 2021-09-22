@@ -16,7 +16,7 @@ using mRemoteNG.Tree.Root;
 using mRemoteNG.UI.Controls.ConnectionTree;
 using mRemoteNG.UI.TaskDialog;
 using WeifenLuo.WinFormsUI.Docking;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 // ReSharper disable ArrangeAccessorOwnerBody
 

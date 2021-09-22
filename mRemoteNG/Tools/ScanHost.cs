@@ -8,7 +8,7 @@ using mRemoteNG.Connection.Protocol.SSH;
 using mRemoteNG.Connection.Protocol.Telnet;
 using mRemoteNG.Connection.Protocol.VNC;
 using mRemoteNG.Messages;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 
 namespace mRemoteNG.Tools

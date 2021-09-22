@@ -1,5 +1,5 @@
 ﻿using mRemoteNG.Connection.Protocol;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.Connection
 {

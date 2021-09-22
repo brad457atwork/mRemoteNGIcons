@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using mRemoteNG.Messages;
 using mRemoteNG.UI.Controls;
 using mRemoteNG.UI.Forms;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Window
 {

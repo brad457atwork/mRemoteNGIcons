@@ -2,7 +2,7 @@
 using mRemoteNG.App.Info;
 using mRemoteNG.Config.DatabaseConnectors;
 using mRemoteNG.Messages;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 using System;
 
 namespace mRemoteNG.Config.Serializers.Versioning

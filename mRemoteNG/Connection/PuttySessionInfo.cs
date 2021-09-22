@@ -6,7 +6,7 @@ using System.ComponentModel;
 using mRemoteNG.Connection.Protocol;
 using mRemoteNG.Tree;
 using mRemoteNG.Tree.Root;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 
 namespace mRemoteNG.Connection

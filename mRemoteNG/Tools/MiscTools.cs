@@ -11,7 +11,7 @@ using mRemoteNG.Messages;
 using mRemoteNG.Properties;
 using mRemoteNG.UI.Forms;
 using MySql.Data.Types;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 using static System.String;
 
 namespace mRemoteNG.Tools

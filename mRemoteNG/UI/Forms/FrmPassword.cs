@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using mRemoteNG.Security;
 using mRemoteNG.Themes;
 using mRemoteNG.Tools;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Forms
 {

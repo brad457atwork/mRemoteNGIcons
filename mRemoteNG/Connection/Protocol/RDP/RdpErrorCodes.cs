@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using mRemoteNG.App;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.Connection.Protocol.RDP
 {

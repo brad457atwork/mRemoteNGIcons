@@ -7,7 +7,7 @@ using System.Collections;
 using System.Linq;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Panels
 {

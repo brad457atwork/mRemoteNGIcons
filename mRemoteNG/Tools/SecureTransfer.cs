@@ -4,7 +4,7 @@ using mRemoteNG.App;
 using Renci.SshNet;
 using Renci.SshNet.Sftp;
 using static System.IO.FileMode;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.Tools
 {

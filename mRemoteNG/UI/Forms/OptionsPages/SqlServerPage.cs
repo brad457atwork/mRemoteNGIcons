@@ -4,7 +4,7 @@ using mRemoteNG.Config.Connections.Multiuser;
 using mRemoteNG.Config.DatabaseConnectors;
 using mRemoteNG.Properties;
 using mRemoteNG.Security.SymmetricEncryption;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {

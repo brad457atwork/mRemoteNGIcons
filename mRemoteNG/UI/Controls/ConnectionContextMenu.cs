@@ -10,7 +10,7 @@ using mRemoteNG.Tools;
 using mRemoteNG.Tools.Clipboard;
 using mRemoteNG.Tree;
 using mRemoteNG.Tree.Root;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 // ReSharper disable UnusedParameter.Local
 

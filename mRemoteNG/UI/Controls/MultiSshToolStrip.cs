@@ -7,7 +7,7 @@ using System.Linq;
 using mRemoteNG.App;
 using mRemoteNG.Connection;
 using mRemoteNG.Connection.Protocol;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Controls
 {

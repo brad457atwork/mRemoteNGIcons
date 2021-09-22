@@ -11,7 +11,7 @@ using mRemoteNG.Container;
 using mRemoteNG.Properties;
 using mRemoteNG.Themes;
 using mRemoteNG.Tools;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Controls
 {

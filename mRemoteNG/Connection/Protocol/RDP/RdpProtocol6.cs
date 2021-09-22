@@ -14,7 +14,7 @@ using mRemoteNG.UI;
 using mRemoteNG.UI.Forms;
 using mRemoteNG.UI.Tabs;
 using MSTSCLib;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.Connection.Protocol.RDP
 {

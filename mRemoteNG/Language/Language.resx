@@ -192,6 +192,9 @@
   <data name="Icon" xml:space="preserve">
     <value>Icon</value>
   </data>
+  <data name="Icons" xml:space="preserve">
+    <value>Icons</value>
+  </data>
   <data name="_Import" xml:space="preserve">
     <value>&amp;Import</value>
   </data>

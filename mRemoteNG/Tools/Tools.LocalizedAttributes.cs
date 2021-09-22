@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 // ReSharper disable ArrangeAccessorOwnerBody
 

@@ -8,7 +8,7 @@ using mRemoteNG.Connection.Protocol.VNC;
 using System;
 using mRemoteNG.Connection.Protocol.PowerShell;
 using mRemoteNG.Properties;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.Connection.Protocol
 {

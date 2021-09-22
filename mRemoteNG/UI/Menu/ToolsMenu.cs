@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using mRemoteNG.App;
 using mRemoteNG.Credential;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Menu
 {

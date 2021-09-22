@@ -11,7 +11,7 @@ using mRemoteNG.UI.Panels;
 using mRemoteNG.UI.Tabs;
 using mRemoteNG.UI.Window;
 using WeifenLuo.WinFormsUI.Docking;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 
 namespace mRemoteNG.Connection

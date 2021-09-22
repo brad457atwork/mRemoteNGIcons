@@ -2,7 +2,7 @@
 using System.IO;
 using mRemoteNG.App;
 using mRemoteNG.Messages;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.Config.DataProviders
 {

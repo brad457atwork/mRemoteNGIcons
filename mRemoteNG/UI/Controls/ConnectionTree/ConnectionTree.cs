@@ -15,7 +15,7 @@ using mRemoteNG.Tools.Clipboard;
 using mRemoteNG.Tree;
 using mRemoteNG.Tree.ClickHandlers;
 using mRemoteNG.Tree.Root;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 // ReSharper disable ArrangeAccessorOwnerBody
 

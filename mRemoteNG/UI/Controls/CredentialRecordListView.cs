@@ -6,7 +6,7 @@ using mRemoteNG.Credential;
 using mRemoteNG.Credential.Repositories;
 using mRemoteNG.Tools.CustomCollections;
 using mRemoteNG.UI.Controls.PageSequence;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Controls
 {

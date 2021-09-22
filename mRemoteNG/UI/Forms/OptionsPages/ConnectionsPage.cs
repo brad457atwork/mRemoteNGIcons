@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using mRemoteNG.Config.Connections;
 using mRemoteNG.Properties;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {

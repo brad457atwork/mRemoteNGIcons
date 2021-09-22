@@ -16,7 +16,7 @@ using mRemoteNG.Connection.Protocol.VNC;
 using mRemoteNG.Container;
 using mRemoteNG.Properties;
 using mRemoteNG.Tree;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 
 namespace mRemoteNG.Connection

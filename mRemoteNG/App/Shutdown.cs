@@ -7,7 +7,7 @@ using mRemoteNG.Config.Putty;
 using mRemoteNG.Properties;
 using mRemoteNG.UI.Controls;
 using mRemoteNG.UI.Forms;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 // ReSharper disable ArrangeAccessorOwnerBody
 

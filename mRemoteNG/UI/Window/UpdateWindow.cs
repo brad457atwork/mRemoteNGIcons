@@ -10,7 +10,7 @@ using mRemoteNG.App.Update;
 using mRemoteNG.Messages;
 using mRemoteNG.Themes;
 using WeifenLuo.WinFormsUI.Docking;
-using mRemoteNG.Resources.Language;
+using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI.Window
 {

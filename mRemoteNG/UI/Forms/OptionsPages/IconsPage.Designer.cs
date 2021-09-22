@@ -38,6 +38,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.IconNameCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.IconImageCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.IconDelCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.IconModCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listIcons)).BeginInit();
             this.SuspendLayout();
@@ -60,11 +61,13 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             // 
             this.listIcons.AllColumns.Add(this.IconNameCol);
             this.listIcons.AllColumns.Add(this.IconImageCol);
+            this.listIcons.AllColumns.Add(this.IconModCol);
             this.listIcons.AllColumns.Add(this.IconDelCol);
             this.listIcons.CellEditUseWholeCell = false;
             this.listIcons.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IconNameCol,
             this.IconImageCol,
+            this.IconModCol,
             this.IconDelCol});
             this.listIcons.Cursor = System.Windows.Forms.Cursors.Default;
             this.listIcons.DecorateLines = true;
@@ -96,6 +99,11 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.IconDelCol.Text = "Delete";
             this.IconDelCol.Width = 108;
             // 
+            // IconModCol
+            // 
+            this.IconModCol.AspectName = "Modify";
+            this.IconModCol.Text = "Change";
+            // 
             // IconsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -114,5 +122,6 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         private BrightIdeasSoftware.OLVColumn IconNameCol;
         private BrightIdeasSoftware.OLVColumn IconImageCol;
         private BrightIdeasSoftware.OLVColumn IconDelCol;
+        private BrightIdeasSoftware.OLVColumn IconModCol;
     }
 }

@@ -1183,8 +1183,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Icons_16x.bmp" />
-    <None Include="Resources\IconsEditor_16px.bmp" />
-    <None Include="Resources\Icons_16px.bmp" />
     <Content Include="Schemas\mremoteng_confcons_v2_6.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

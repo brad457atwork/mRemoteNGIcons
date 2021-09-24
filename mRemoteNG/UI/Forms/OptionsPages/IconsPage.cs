@@ -5,6 +5,7 @@ using mRemoteNG.Properties;
 using mRemoteNG.Resources;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {
@@ -24,7 +25,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         }
         public override void LoadSettings()
         {
-            
+
             //string f = "";
             //foreach (string fileName f in Directory.GetFiles("SomeDirectory"))
             //    {
@@ -202,9 +203,49 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
         public void LoadData(string[,] source) {
             // ListViewItem
+            //foreach(string[] s in source)
+            //{
+            //
+            //}
 
-        //listIcons.Items.Add(
-        //    )
+            string[] item = new string[3];
+            for (int i = 0; i < source.GetLength(0); i++)
+            {
+                int x = 0;
+                for (int j = 0; j < source.GetLength(1); j++)
+                {
+                    string value = source[i, j];
+                    Debug.Write(value);
+                    item[x] = value;
+                    x++;
+                }
+                ListView.ListViewItemCollection coll = new ListView.ListViewItemCollection(new ListView());
+                // coll.Add("0", "test", "source");
+                coll.Add(item[0], item[1], item[2]);
+
+                //List<ListViewItem> arrayitems = new List<ListViewItem>();
+                //arrayitems.Add(new ListViewItem("one"));
+                //arrayitems.Add(new ListViewItem("two"));
+                //arrayitems.Add(new ListViewItem("three"));
+                //ListView.ListViewItemCollection coll = new ListView.ListViewItemCollection(new ListView());
+                //// coll.Add("0", "test", "source");
+                //coll.Add(item[x], item[x], "source");
+                //listIcons.Items.AddRange(coll);
+                //    //arrayitems[0],arrayitems[1],arrayitems[3]);
+                //item[0], item[1], item[2]);
+                //listIcons.Items.Add(source[x][0].ToString(), source[x][1].ToString(), source[x][2].ToString());
+                Debug.WriteLine("");
+
+            }
+
+
+            foreach (string s in source)
+            {
+                Debug.WriteLine("String - " + s);
+
+            //listIcons.Items.Add(s[x][0].ToString(), s[x][1].ToString(), s[x][2].ToString());
+
+            }
         }
 
         public static void Print2DArray<T>(T[,] matrix)

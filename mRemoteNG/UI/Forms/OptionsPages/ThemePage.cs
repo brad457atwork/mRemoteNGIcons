@@ -67,6 +67,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             cboTheme.DisplayMember = "Name";
 
             listPalette.FormatCell += ListPalette_FormatCell; //Color cell formatter
+            
         }
 
         private void ListPalette_FormatCell(object sender, FormatCellEventArgs e)

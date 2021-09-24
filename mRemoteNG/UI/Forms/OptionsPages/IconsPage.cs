@@ -4,6 +4,7 @@ using System.Linq;
 using mRemoteNG.Properties;
 using mRemoteNG.Resources;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {
@@ -23,7 +24,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         }
         public override void LoadSettings()
         {
-
+            
             //string f = "";
             //foreach (string fileName f in Directory.GetFiles("SomeDirectory"))
             //    {
@@ -53,15 +54,17 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
 
             int filecount = files.Count();
-            string[,] IconRows = new string[filecount,2];
+            string[,] IconRows = new string[filecount,3];
 
-            int x = 0;
+            // IconRows Row Counter
+            int fx = 0;
             foreach (var file in files)
             {
-                string[] IconRow = new string[2];
+                string[] IconRow = new string[3];
 
-                IconRow[0] = Path.GetFileNameWithoutExtension(file).Replace("-","").Replace("_","");
-                IconRow[1] = file;
+                IconRow[0] = fx.ToString();
+                IconRow[1] = Path.GetFileNameWithoutExtension(file).Replace("-","").Replace("_","");
+                IconRow[2] = file;
 
                 //IconRows[x, 0] = Path.GetFileNameWithoutExtension(file).Replace("-", "").Replace("_", "");
                 //IconRows[x, 1] = file;
@@ -71,7 +74,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
                 //listIcons.
                 //listIcons.Items.Add(IconRow[1]);
-              //  listIcons.DataBindings.Add()
+                //  listIcons.DataBindings.Add()
                 //(Path.GetFileNameWithoutExtension(file).Replace("-", "").Replace("_", ""), file, "Change", "Delete");
                 //listIcons
 
@@ -79,8 +82,25 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 //row.Cells[0].Value = "XYZ";
                 //row.Cells[1].Value = 50.2;
                 //yourDataGridView.Rows.Add(row);
-            }
 
+                // IconsRows Column Counter
+                int fy = 0;
+
+                IconRows[fx, fy] = fx.ToString();
+
+                fy++;
+
+                IconRows[fx, fy] = Path.GetFileNameWithoutExtension(file).Replace("-", "").Replace("_", "");
+
+                fy++;
+
+                IconRows[fx, fy] = file;
+
+                fx++;
+            }
+            Print2DArray(IconRows);
+
+            LoadData(IconRows);
             ////At first we cannot create or delete themes, depends later on the type of selected theme
             //btnThemeNew.Enabled = false;
             //btnThemeDelete.Enabled = false;
@@ -179,5 +199,39 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
         //    return themes.Values.OfType<ThemeInfo>().ToList();
         //}
+
+        public void LoadData(string[,] source) {
+            // ListViewItem
+
+        //listIcons.Items.Add(
+        //    )
+        }
+
+        public static void Print2DArray<T>(T[,] matrix)
+        {
+            int x = 0;
+            string textitem = "";
+            Debug.WriteLine("|" +   " Row | " + "Icon Name".PadRight(30) + " | Icon Path".PadRight(50) + "    |");
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    textitem = matrix[i, j].ToString();
+                    if (j == 0) {
+                        Debug.Write("| " + textitem.PadRight(4));
+                    } else if (j == 1) {
+                        Debug.Write("| " + textitem.PadRight(30) + " | ");
+                    } else {
+
+                        Debug.Write(textitem.PadRight(50) + " |");
+
+                    }
+
+                }
+                Debug.WriteLine("");
+                x++;
+            }
+        }
+
     }
 }

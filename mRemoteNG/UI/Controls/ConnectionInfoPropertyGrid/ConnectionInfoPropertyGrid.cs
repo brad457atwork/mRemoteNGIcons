@@ -211,9 +211,7 @@ namespace mRemoteNG.UI.Controls.ConnectionInfoPropertyGrid
                     .Contains(protocol) != false);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         private List<string> SpecialRdpExclusions()
         {
             var strHide = new List<string>();

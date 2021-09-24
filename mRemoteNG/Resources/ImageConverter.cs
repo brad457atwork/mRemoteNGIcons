@@ -2,7 +2,7 @@
 
 namespace mRemoteNG.Resources
 {
-    class ImageConverter
+    static class ImageConverter
     {
         /// <summary>
         /// Draws an Icon from a Bitmap

@@ -66,12 +66,12 @@ namespace mRemoteNG.App
             LoadConnections();
         }
 
+
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="withDialog">
         /// Should we show the file selection dialog to allow the user to select
         /// a connection file
+        /// </summary>
+        /// <param name="withDialog">
         /// </param>
         public static void LoadConnections(bool withDialog = false)
         {

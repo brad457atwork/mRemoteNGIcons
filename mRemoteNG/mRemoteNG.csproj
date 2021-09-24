@@ -434,6 +434,7 @@
     <Compile Include="UI\Controls\HeadlessTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\Forms\OptionsPages\IconsInfo.cs" />
     <Compile Include="UI\Forms\OptionsPages\IconsPage.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -6,7 +6,7 @@ using mRemoteNG.Resources;
 
 namespace mRemoteNG.Tools
 {
-    public class LocalizedAttributes
+    public static class LocalizedAttributes
     {
         [AttributeUsage(AttributeTargets.All, AllowMultiple = false, Inherited = true)]
         public class LocalizedCategoryAttribute : CategoryAttribute

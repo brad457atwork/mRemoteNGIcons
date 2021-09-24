@@ -9,7 +9,7 @@ using mRemoteNG.Resources;
 
 namespace mRemoteNG.UI
 {
-    public class DialogFactory
+    public static class DialogFactory
     {
         public static OpenFileDialog BuildLoadConnectionsDialog()
         {

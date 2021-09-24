@@ -37,8 +37,8 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.listIcons = new mRemoteNG.UI.Controls.MrngListView();
             this.IconNameCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.IconImageCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
-            this.IconDelCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.IconModCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.IconDelCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listIcons)).BeginInit();
             this.SuspendLayout();
@@ -93,16 +93,18 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.IconImageCol.Text = "Icon Image";
             this.IconImageCol.Width = 100;
             // 
-            // IconDelCol
-            // 
-            this.IconDelCol.AspectName = "Delete";
-            this.IconDelCol.Text = "Delete";
-            this.IconDelCol.Width = 108;
-            // 
             // IconModCol
             // 
             this.IconModCol.AspectName = "Modify";
+            this.IconModCol.IsButton = true;
             this.IconModCol.Text = "Change";
+            // 
+            // IconDelCol
+            // 
+            this.IconDelCol.AspectName = "Delete";
+            this.IconDelCol.IsButton = true;
+            this.IconDelCol.Text = "Delete";
+            this.IconDelCol.Width = 108;
             // 
             // IconsPage
             // 

@@ -3,7 +3,7 @@ using mRemoteNG.Resources;
 
 namespace mRemoteNG.Connection
 {
-    public class WebHelper
+    public static class WebHelper
     {
         public static void GoToUrl(string url)
         {

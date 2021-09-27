@@ -6,6 +6,7 @@ using mRemoteNG.Resources;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {
@@ -45,6 +46,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             //btnThemeDelete.Enabled = false;
             //Load the list of themes
             listIcons.Items.Clear();
+            listViewIcons.Items.Clear();
             // ReSharper disable once CoVariantArrayConversion
             //listIcons.Items.AddRange
             //cboTheme.SelectedItem = _themeManager.ActiveTheme;
@@ -208,17 +210,35 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             //
             //}
 
+
+
             string[] item = new string[3];
             for (int i = 0; i < source.GetLength(0); i++)
             {
                 int x = 0;
                 for (int j = 0; j < source.GetLength(1); j++)
                 {
+
                     string value = source[i, j];
                     Debug.Write(value);
                     item[x] = value;
                     x++;
                 }
+
+
+                Console.WriteLine(item[0] + " - " + item[1] + " - " + item[2]);
+
+                ListViewItem lvi = new ListViewItem();
+                ImageList il = new ImageList();
+                lvi.Text = item[2];
+                lvi.Name = Path.GetFileNameWithoutExtension(item[1]).Replace("-", "").Replace("_", "");
+                il.Images.Add(Image.FromFile(item[2]));
+
+                this.listViewIcons.View = View.LargeIcon;
+                il.ImageSize = new Size(32, 32);
+                this.listViewIcons.LargeImageList = il;
+                // lvi.= item[0];
+                listViewIcons.Items.Add(lvi);
 
                 // Semi working code for populating LV - BEGIN
                 //ListView.ListViewItemCollection coll = new ListView.ListViewItemCollection(new ListView());
@@ -241,6 +261,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                                    }
                       };
 
+               
                 listIcons.SetObjects(lstCalls);
                 //coll.Add(item[1], item[2]);
                 //listIcons.Items.AddRange(coll);

@@ -38,6 +38,10 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.IconIndexCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.IconNameCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
             this.IconImageCol = ((BrightIdeasSoftware.OLVColumn)(new BrightIdeasSoftware.OLVColumn()));
+            this.listViewIcons = new System.Windows.Forms.ListView();
+            this.ListIconNum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ListIconName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ListIconPath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listIcons)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +50,8 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.listIcons, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.listIcons, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.listViewIcons, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -62,6 +67,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.listIcons.AllColumns.Add(this.IconIndexCol);
             this.listIcons.AllColumns.Add(this.IconNameCol);
             this.listIcons.AllColumns.Add(this.IconImageCol);
+            this.listIcons.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listIcons.CellEditUseWholeCell = false;
             this.listIcons.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.IconIndexCol,
@@ -71,10 +77,10 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.listIcons.DecorateLines = true;
             this.listIcons.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listIcons.HideSelection = false;
-            this.listIcons.Location = new System.Drawing.Point(4, 4);
+            this.listIcons.Location = new System.Drawing.Point(189, 571);
             this.listIcons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listIcons.Name = "listIcons";
-            this.listIcons.Size = new System.Drawing.Size(754, 558);
+            this.listIcons.Size = new System.Drawing.Size(384, 37);
             this.listIcons.TabIndex = 0;
             this.listIcons.UseCompatibleStateImageBehavior = false;
             this.listIcons.View = System.Windows.Forms.View.Details;
@@ -98,6 +104,34 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.IconImageCol.Text = "Icon Image";
             this.IconImageCol.Width = 100;
             // 
+            // listViewIcons
+            // 
+            this.listViewIcons.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewIcons.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ListIconNum,
+            this.ListIconName,
+            this.ListIconPath});
+            this.listViewIcons.HideSelection = false;
+            this.listViewIcons.Location = new System.Drawing.Point(3, 3);
+            this.listViewIcons.Name = "listViewIcons";
+            this.listViewIcons.Size = new System.Drawing.Size(756, 561);
+            this.listViewIcons.TabIndex = 1;
+            this.listViewIcons.UseCompatibleStateImageBehavior = false;
+            // 
+            // ListIconNum
+            // 
+            this.ListIconNum.Text = "#";
+            // 
+            // ListIconName
+            // 
+            this.ListIconName.Text = "Icon Name";
+            // 
+            // ListIconPath
+            // 
+            this.ListIconPath.Text = "Icon Path";
+            // 
             // IconsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -117,5 +151,9 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         private BrightIdeasSoftware.OLVColumn IconIndexCol;
         private BrightIdeasSoftware.OLVColumn IconImageCol;
         private BrightIdeasSoftware.OLVColumn IconNameCol;
+        private System.Windows.Forms.ListView listViewIcons;
+        private System.Windows.Forms.ColumnHeader ListIconNum;
+        private System.Windows.Forms.ColumnHeader ListIconName;
+        private System.Windows.Forms.ColumnHeader ListIconPath;
     }
 }

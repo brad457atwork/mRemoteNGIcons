@@ -54,7 +54,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.btnThemeDelete._mice = mRemoteNG.UI.Controls.MrngButton.MouseState.OUT;
             this.btnThemeDelete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnThemeDelete.Location = new System.Drawing.Point(633, 4);
-            this.btnThemeDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThemeDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThemeDelete.Name = "btnThemeDelete";
             this.btnThemeDelete.Size = new System.Drawing.Size(117, 31);
             this.btnThemeDelete.TabIndex = 2;
@@ -67,7 +67,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.btnThemeNew._mice = mRemoteNG.UI.Controls.MrngButton.MouseState.OUT;
             this.btnThemeNew.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnThemeNew.Location = new System.Drawing.Point(508, 4);
-            this.btnThemeNew.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThemeNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThemeNew.Name = "btnThemeNew";
             this.btnThemeNew.Size = new System.Drawing.Size(117, 31);
             this.btnThemeNew.TabIndex = 1;
@@ -82,7 +82,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.cboTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTheme.FormattingEnabled = true;
             this.cboTheme.Location = new System.Drawing.Point(4, 4);
-            this.cboTheme.Margin = new System.Windows.Forms.Padding(4);
+            this.cboTheme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboTheme.Name = "cboTheme";
             this.cboTheme.Size = new System.Drawing.Size(496, 27);
             this.cboTheme.TabIndex = 0;
@@ -104,7 +104,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.listPalette.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listPalette.HideSelection = false;
             this.listPalette.Location = new System.Drawing.Point(4, 46);
-            this.listPalette.Margin = new System.Windows.Forms.Padding(4);
+            this.listPalette.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listPalette.Name = "listPalette";
             this.listPalette.ShowGroups = false;
             this.listPalette.Size = new System.Drawing.Size(754, 520);
@@ -157,7 +157,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.tableLayoutPanel1.Controls.Add(this.btnThemeDelete, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -172,7 +172,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.tableLayoutPanel2.Controls.Add(this.labelRestart, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 574);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -188,7 +188,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.tlpMain.Controls.Add(this.listPalette, 0, 1);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
-            this.tlpMain.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpMain.Name = "tlpMain";
             this.tlpMain.RowCount = 3;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
@@ -203,7 +203,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.tlpMain);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "ThemePage";
             this.Size = new System.Drawing.Size(762, 612);
             ((System.ComponentModel.ISupportInitialize)(this.listPalette)).EndInit();

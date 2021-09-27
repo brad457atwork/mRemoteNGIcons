@@ -219,10 +219,33 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                     item[x] = value;
                     x++;
                 }
-                ListView.ListViewItemCollection coll = new ListView.ListViewItemCollection(new ListView());
-                // coll.Add("0", "test", "source");
-                coll.Add(item[0], item[1], item[2]);
 
+                // Semi working code for populating LV - BEGIN
+                //ListView.ListViewItemCollection coll = new ListView.ListViewItemCollection(new ListView());
+                //// coll.Add("0", "test", "source");
+                //ListViewItem lvitem = new ListViewItem();
+                //lvitem.Name = item[1];
+                //lvitem.ImageIndex = int.Parse(item[0]);
+                //lvitem.Text = item[1];
+                ////listIcons.Items.Add(item[1]);
+                // Semi working code for populating LV - END
+                //listIcons.SetObjects();
+
+                // Assign item values to List object
+                var lstCalls = new List<Icons>()
+                      {
+                        new Icons() {
+                            Id = item[0],
+                            Icon_Name = item[1],
+                            Icon_Path = item[2]
+                                   }
+                      };
+
+                listIcons.SetObjects(lstCalls);
+                //coll.Add(item[1], item[2]);
+                //listIcons.Items.AddRange(coll);
+                //                BrightIdeasSoftware.OLVListItem
+                //  listIcons.Items.AddRange(coll);
                 //List<ListViewItem> arrayitems = new List<ListViewItem>();
                 //arrayitems.Add(new ListViewItem("one"));
                 //arrayitems.Add(new ListViewItem("two"));
@@ -272,6 +295,12 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 Debug.WriteLine("");
                 x++;
             }
+        }
+        public class Icons
+        {
+            public string Id { get; set; }
+            public string Icon_Name { get; set; }
+            public string Icon_Path { get; set; }
         }
 
     }

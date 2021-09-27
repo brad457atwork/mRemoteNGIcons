@@ -45,7 +45,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             //btnThemeNew.Enabled = false;
             //btnThemeDelete.Enabled = false;
             //Load the list of themes
-            listIcons.Items.Clear();
+            //listIcons.Items.Clear();
             listViewIcons.Items.Clear();
             // ReSharper disable once CoVariantArrayConversion
             //listIcons.Items.AddRange
@@ -210,7 +210,16 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             //
             //}
 
+            string prefix =  Directory.GetCurrentDirectory();
+           // listViewIcons.View = View.SmallIcon;
+            System.Windows.Forms.ImageList IconList = new ImageList();
+            IconList.ImageSize = new Size(16, 16);
+            //myImageList1.Images.Add(Image.FromFile(@"C:\Users\Indus_User\Desktop\Icons\W\01.PNG"));
+            //this.listViewIcons.View = View.List;
 
+            //ImageList il = new ImageList();
+            //il.ImageSize = new Size(32, 32);
+            List<string> IconNames = new List<string>();
 
             string[] item = new string[3];
             for (int i = 0; i < source.GetLength(0); i++)
@@ -226,19 +235,22 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 }
 
 
+              //  IconList.Images.Add(Image.FromFile(@prefix + @"\"  + item[2]));
+
                 Console.WriteLine(item[0] + " - " + item[1] + " - " + item[2]);
 
-                ListViewItem lvi = new ListViewItem();
-                ImageList il = new ImageList();
-                lvi.Text = item[2];
-                lvi.Name = Path.GetFileNameWithoutExtension(item[1]).Replace("-", "").Replace("_", "");
-                il.Images.Add(Image.FromFile(item[2]));
+               // ListViewItem lvi = new ListViewItem();
 
-                this.listViewIcons.View = View.LargeIcon;
-                il.ImageSize = new Size(32, 32);
-                this.listViewIcons.LargeImageList = il;
+                //lvi.Text = item[2];
+                //lvi.Name = Path.GetFileNameWithoutExtension(item[1]).Replace("-", "").Replace("_", "");
+                string iconfullfilename = @prefix + @"\" + item[2];
+                IconList.Images.Add(Image.FromFile(iconfullfilename));
+                IconNames.Add(item[1]);
+                //listViewIcons.Items.Add(item[1], item[0]);
+
+                //this.listViewIcons.LargeImageList = il;
                 // lvi.= item[0];
-                listViewIcons.Items.Add(lvi);
+                //listViewIcons.Items.Add(lvi);
 
                 // Semi working code for populating LV - BEGIN
                 //ListView.ListViewItemCollection coll = new ListView.ListViewItemCollection(new ListView());
@@ -252,17 +264,16 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 //listIcons.SetObjects();
 
                 // Assign item values to List object
-                var lstCalls = new List<Icons>()
-                      {
-                        new Icons() {
-                            Id = item[0],
-                            Icon_Name = item[1],
-                            Icon_Path = item[2]
-                                   }
-                      };
+                //var lstCalls = new List<Icons>()
+                //      {
+                //        new Icons() {
+                //            Id = item[0],
+                //            Icon_Name = item[1],
+                //            Icon_Path = item[2]
+                //                   }
+                //      };
 
-               
-                listIcons.SetObjects(lstCalls);
+                // listIcons.SetObjects(lstCalls);
                 //coll.Add(item[1], item[2]);
                 //listIcons.Items.AddRange(coll);
                 //                BrightIdeasSoftware.OLVListItem
@@ -281,8 +292,16 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 Debug.WriteLine("");
 
             }
+            listViewIcons.LargeImageList = IconList;
+            listViewIcons.SmallImageList = IconList;
 
 
+            int INx = 0;
+            foreach (string IconName in IconNames) // Loop through List with foreach
+            {
+                listViewIcons.Items.Add(IconName, INx);
+                INx++;
+            }
             foreach (string s in source)
             {
                 Debug.WriteLine("String - " + s);

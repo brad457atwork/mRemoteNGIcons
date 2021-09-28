@@ -31,7 +31,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             string root = "Icons";
 
             // Get a list of all subdirectories
-            var files = from file in
+            IEnumerable<string> files = from file in
             Directory.EnumerateFiles(root)
                         select file;
 
@@ -58,7 +58,6 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
                 IconRow[0] = fx.ToString();
 
-
                 // Fix Icon name being more readable by still removing these things, but then having the file loaded by a reference to the item.
                 //IconRow[1] = Path.GetFileNameWithoutExtension(file).Replace("-","").Replace("_","");
                 IconRow[1] = Path.GetFileNameWithoutExtension(file);
@@ -79,11 +78,14 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 IconRows[fx, fy] = file;
 
                 fx++;
+
             }
+
             // debugging
-            Print2DArray(IconRows);
+            //Print2DArray(IconRows);
 
             LoadData(IconRows);
+            
 
         }
 
@@ -163,6 +165,8 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 listViewIcons.Items.Add(IconName, INx);
                 INx++;
             }
+
+            IconList.Dispose();
             //foreach (string s in source)
             //{
             //    // debugging
@@ -246,18 +250,21 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
-                InitialDirectory = @"D:\",
-                Title = "Browse Text Files",
+
+                InitialDirectory = prefix,
+                Title = "Select new Icon",
 
                 CheckFileExists = true,
                 CheckPathExists = true,
 
                 DefaultExt = "ico",
                 Filter = "icon files (*.ico)|*.ico",
-                FilterIndex = 2,
+                FilterIndex = 1,
                 RestoreDirectory = true,
 
-                ReadOnlyChecked = true,
+                // Needs to be set to false or file will be locked by OpenFileDialog
+                ReadOnlyChecked = false,
+                ValidateNames = false,
                 ShowReadOnly = true
             };
 
@@ -278,20 +285,23 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 if (result == DialogResult.Yes)
                 {
                     listViewIcons.Items.Clear();
-                    //Bitmap b = (Bitmap)BMPIcon.Clone();
+                    listViewIcons.Dispose();
+                    Bitmap b = (Bitmap)BMPIcon.Clone();
                     BMPIcon.Dispose(); // now temp is released
                     BMPIcon = null;
+                    b.Dispose();
+                    
                     mrngPictureBox1.Image.Dispose();
 
-                    File.Move(Filedst, Filedst + ".del");
-                    File.Delete(Filedst + ".del");
+                  //  File.Move(Filedst, Filedst + ".del");
+                  //  File.Delete(Filedst + ".del");
                     File.Copy(Filesrc, Filedst,true);
                 }
                 else
                 {
 
                 }
-                
+
                 //mrngPictureBox1.Image = BMPIcon;
 
                 Console.WriteLine("Destination Full Path: " + Filedst);

@@ -41,6 +41,8 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.lblIconImage = new System.Windows.Forms.Label();
             this.mrngPictureBox1 = new mRemoteNG.UI.Controls.MrngPictureBox(this.components);
             this.mrngBtnIconImageChange = new mRemoteNG.UI.Controls.MrngButton();
+            this.mrngBtnIconAdd = new mRemoteNG.UI.Controls.MrngButton();
+            this.mrngBtnIconDelete = new mRemoteNG.UI.Controls.MrngButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.tableLayoutPanelIconEdit.SuspendLayout();
@@ -59,12 +61,11 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Controls.Add(this.listViewIcons, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelRight, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.mrngBtnIconSave, 3, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.65306F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.346939F));
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(610, 490);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -79,7 +80,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.listViewIcons.Margin = new System.Windows.Forms.Padding(2);
             this.listViewIcons.MultiSelect = false;
             this.listViewIcons.Name = "listViewIcons";
-            this.listViewIcons.Size = new System.Drawing.Size(452, 449);
+            this.listViewIcons.Size = new System.Drawing.Size(452, 486);
             this.listViewIcons.TabIndex = 1;
             this.listViewIcons.UseCompatibleStateImageBehavior = false;
             this.listViewIcons.View = System.Windows.Forms.View.List;
@@ -91,7 +92,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Location = new System.Drawing.Point(459, 3);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(148, 447);
+            this.panelRight.Size = new System.Drawing.Size(148, 484);
             this.panelRight.TabIndex = 2;
             this.panelRight.Visible = false;
             // 
@@ -102,19 +103,25 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.tableLayoutPanelIconEdit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 59F));
             this.tableLayoutPanelIconEdit.Controls.Add(this.lblIconName, 0, 0);
             this.tableLayoutPanelIconEdit.Controls.Add(this.txtIconName, 0, 1);
+            this.tableLayoutPanelIconEdit.Controls.Add(this.mrngBtnIconSave, 0, 5);
             this.tableLayoutPanelIconEdit.Controls.Add(this.lblIconImage, 0, 2);
             this.tableLayoutPanelIconEdit.Controls.Add(this.mrngPictureBox1, 0, 3);
             this.tableLayoutPanelIconEdit.Controls.Add(this.mrngBtnIconImageChange, 1, 3);
+            this.tableLayoutPanelIconEdit.Controls.Add(this.mrngBtnIconAdd, 0, 4);
+            this.tableLayoutPanelIconEdit.Controls.Add(this.mrngBtnIconDelete, 0, 6);
             this.tableLayoutPanelIconEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelIconEdit.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelIconEdit.Name = "tableLayoutPanelIconEdit";
-            this.tableLayoutPanelIconEdit.RowCount = 5;
+            this.tableLayoutPanelIconEdit.RowCount = 8;
             this.tableLayoutPanelIconEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanelIconEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanelIconEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanelIconEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanelIconEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 202F));
-            this.tableLayoutPanelIconEdit.Size = new System.Drawing.Size(148, 447);
+            this.tableLayoutPanelIconEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanelIconEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanelIconEdit.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanelIconEdit.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelIconEdit.Size = new System.Drawing.Size(148, 484);
             this.tableLayoutPanelIconEdit.TabIndex = 0;
             this.tableLayoutPanelIconEdit.Visible = false;
             // 
@@ -143,7 +150,8 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             // 
             this.mrngBtnIconSave._mice = mRemoteNG.UI.Controls.MrngButton.MouseState.OUT;
             this.mrngBtnIconSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mrngBtnIconSave.Location = new System.Drawing.Point(486, 460);
+            this.tableLayoutPanelIconEdit.SetColumnSpan(this.mrngBtnIconSave, 2);
+            this.mrngBtnIconSave.Location = new System.Drawing.Point(27, 263);
             this.mrngBtnIconSave.Name = "mrngBtnIconSave";
             this.mrngBtnIconSave.Size = new System.Drawing.Size(93, 23);
             this.mrngBtnIconSave.TabIndex = 3;
@@ -184,6 +192,30 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.mrngBtnIconImageChange.Text = "Change";
             this.mrngBtnIconImageChange.UseVisualStyleBackColor = true;
             // 
+            // mrngBtnIconAdd
+            // 
+            this.mrngBtnIconAdd._mice = mRemoteNG.UI.Controls.MrngButton.MouseState.OUT;
+            this.mrngBtnIconAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanelIconEdit.SetColumnSpan(this.mrngBtnIconAdd, 2);
+            this.mrngBtnIconAdd.Location = new System.Drawing.Point(27, 213);
+            this.mrngBtnIconAdd.Name = "mrngBtnIconAdd";
+            this.mrngBtnIconAdd.Size = new System.Drawing.Size(93, 23);
+            this.mrngBtnIconAdd.TabIndex = 5;
+            this.mrngBtnIconAdd.Text = "Add New Icon";
+            this.mrngBtnIconAdd.UseVisualStyleBackColor = true;
+            // 
+            // mrngBtnIconDelete
+            // 
+            this.mrngBtnIconDelete._mice = mRemoteNG.UI.Controls.MrngButton.MouseState.OUT;
+            this.mrngBtnIconDelete.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanelIconEdit.SetColumnSpan(this.mrngBtnIconDelete, 2);
+            this.mrngBtnIconDelete.Location = new System.Drawing.Point(27, 313);
+            this.mrngBtnIconDelete.Name = "mrngBtnIconDelete";
+            this.mrngBtnIconDelete.Size = new System.Drawing.Size(93, 23);
+            this.mrngBtnIconDelete.TabIndex = 6;
+            this.mrngBtnIconDelete.Text = "Delete Icon";
+            this.mrngBtnIconDelete.UseVisualStyleBackColor = true;
+            // 
             // IconsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -212,5 +244,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         private MrngPictureBox mrngPictureBox1;
         private MrngButton mrngBtnIconImageChange;
         private System.ComponentModel.IContainer components;
+        private MrngButton mrngBtnIconAdd;
+        private MrngButton mrngBtnIconDelete;
     }
 }

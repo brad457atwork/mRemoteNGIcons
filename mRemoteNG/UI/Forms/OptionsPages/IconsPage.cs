@@ -198,5 +198,30 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             public string Icon_Path { get; set; }
         }
 
+        private void listViewIcons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (listViewIcons.SelectedItems.Count > 0)
+            {
+                ListView.SelectedListViewItemCollection selected;
+                selected = null;
+                selected = listViewIcons.SelectedItems;
+                Console.WriteLine("Text: " + selected[0].Text + " | Name: " + selected[0].Name + " | Index: " + selected[0].Index.ToString());
+                txtIconName.Text = selected[0].Text;
+                panelRight.Visible = true;
+                tableLayoutPanelIconEdit.Visible = true;
+            } else
+            {
+                txtIconName.Text = "";
+                panelRight.Visible = false;
+                tableLayoutPanelIconEdit.Visible = false;
+            }
+
+        }
+
+        private void mrngBtnIconSave_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

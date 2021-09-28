@@ -12,6 +12,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 {
     public sealed partial class IconsPage
     {
+        Bitmap BMPIcon;
         string prefix = Directory.GetCurrentDirectory();
         public IconsPage()
         {
@@ -214,7 +215,8 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 selected = listViewIcons.SelectedItems;
                 Console.WriteLine("Text: " + selected[0].Text + " | Name: " + selected[0].Name + " | Index: " + selected[0].Index.ToString());
                 Console.WriteLine("Image Path: " + @prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
-                mrngPictureBox1.Image = new Bitmap(@prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
+                BMPIcon = new Bitmap(@prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
+                mrngPictureBox1.Image = BMPIcon;
                txtIconName.Text = selected[0].Text;
                 mrngBtnIconDelete.Enabled = true;
                 mrngBtnIconImageChange.Enabled = true;
@@ -261,9 +263,46 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Console.Write(openFileDialog1.FileName);
 
-                mrngPictureBox1.Image = new Bitmap(openFileDialog1.FileName);
+                ListView.SelectedListViewItemCollection selected;
+                selected = null;
+                selected = listViewIcons.SelectedItems;
+
+                string Filesrc = openFileDialog1.FileName;
+                string Filedst = prefix + @"\Icons\" + selected[0].Text + ".ico";
+
+                string message = "Confirm updating icon " + Filedst + " with icon " + Filesrc;
+                string title = "Confirm icon update";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    listViewIcons.Items.Clear();
+                    //Bitmap b = (Bitmap)BMPIcon.Clone();
+                    BMPIcon.Dispose(); // now temp is released
+                    BMPIcon = null;
+                    mrngPictureBox1.Image.Dispose();
+
+                    File.Move(Filedst, Filedst + ".del");
+                    File.Delete(Filedst + ".del");
+                    File.Copy(Filesrc, Filedst,true);
+                }
+                else
+                {
+
+                }
+                
+                //mrngPictureBox1.Image = BMPIcon;
+
+                Console.WriteLine("Destination Full Path: " + Filedst);
+
+                // debuging
+                Console.Write("Source: " + Filesrc + " | " + "Destination: " + Filedst);
+
+
+                LoadSettings();
+                //mrngPictureBox1.Image = new Bitmap(Filesrc);
+                //File.Copy(Filesrc, Filedst);
                 //textBox1.Text = openFileDialog1.FileName;
             }
         }
@@ -271,6 +310,18 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         private void mrngBtnIconDelete_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void mrngBtnIconSave_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void IconsPage_Load(object sender, EventArgs e)
+        {
+            mrngBtnIconAdd.Visible = false;
+            mrngBtnIconDelete.Visible = false;
+            mrngBtnIconSave.Visible = false;
         }
     }
 }

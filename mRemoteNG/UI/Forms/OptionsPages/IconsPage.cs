@@ -12,6 +12,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 {
     public sealed partial class IconsPage
     {
+        string prefix = Directory.GetCurrentDirectory();
         public IconsPage()
         {
             InitializeComponent();
@@ -55,7 +56,11 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 string[] IconRow = new string[3];
 
                 IconRow[0] = fx.ToString();
-                IconRow[1] = Path.GetFileNameWithoutExtension(file).Replace("-","").Replace("_","");
+
+
+                // Fix Icon name being more readable by still removing these things, but then having the file loaded by a reference to the item.
+                //IconRow[1] = Path.GetFileNameWithoutExtension(file).Replace("-","").Replace("_","");
+                IconRow[1] = Path.GetFileNameWithoutExtension(file);
                 IconRow[2] = file;
 
                 // IconsRows Column Counter
@@ -64,8 +69,9 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 IconRows[fx, fy] = fx.ToString();
 
                 fy++;
-
-                IconRows[fx, fy] = Path.GetFileNameWithoutExtension(file).Replace("-", "").Replace("_", "");
+                // Fix Icon name being more readable by still removing these things, but then having the file loaded by a reference to the item.
+                //IconRows[fx, fy] = Path.GetFileNameWithoutExtension(file).Replace("-", "").Replace("_", "");
+                IconRows[fx, fy] = Path.GetFileNameWithoutExtension(file);
 
                 fy++;
 
@@ -93,7 +99,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         public void LoadData(string[,] source) {
 
             // Get directory program is running in
-            string prefix =  Directory.GetCurrentDirectory();
+
             // Create ImageList IconList
             System.Windows.Forms.ImageList IconList = new ImageList();
 
@@ -207,19 +213,62 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 selected = null;
                 selected = listViewIcons.SelectedItems;
                 Console.WriteLine("Text: " + selected[0].Text + " | Name: " + selected[0].Name + " | Index: " + selected[0].Index.ToString());
-                txtIconName.Text = selected[0].Text;
-                panelRight.Visible = true;
+                Console.WriteLine("Image Path: " + @prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
+                mrngPictureBox1.Image = new Bitmap(@prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
+               txtIconName.Text = selected[0].Text;
+                mrngBtnIconDelete.Enabled = true;
+                mrngBtnIconImageChange.Enabled = true;
+                mrngBtnIconSave.Enabled = true;
+
+                //panelRight.Visible = true;
                 tableLayoutPanelIconEdit.Visible = true;
             } else
             {
+                mrngBtnIconDelete.Enabled = false;
+                mrngBtnIconImageChange.Enabled = false;
+                mrngBtnIconSave.Enabled = true;
+
                 txtIconName.Text = "";
-                panelRight.Visible = false;
+                //panelRight.Visible = false;
                 tableLayoutPanelIconEdit.Visible = false;
             }
 
         }
 
         private void mrngBtnIconSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mrngBtnIconImageChange_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                InitialDirectory = @"D:\",
+                Title = "Browse Text Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "ico",
+                Filter = "icon files (*.ico)|*.ico",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Console.Write(openFileDialog1.FileName);
+
+                mrngPictureBox1.Image = new Bitmap(openFileDialog1.FileName);
+                //textBox1.Text = openFileDialog1.FileName;
+            }
+        }
+
+        private void mrngBtnIconDelete_Click(object sender, EventArgs e)
         {
 
         }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {
@@ -14,6 +15,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
     {
         Bitmap BMPIcon;
         string prefix = Directory.GetCurrentDirectory();
+        System.Windows.Forms.ImageList IconList = new ImageList();
         public IconsPage()
         {
             InitializeComponent();
@@ -85,7 +87,6 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             //Print2DArray(IconRows);
 
             LoadData(IconRows);
-            
 
         }
 
@@ -141,8 +142,16 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
                 // assign full path and filename for the icon to string iconfullfilename
                 string iconfullfilename = @prefix + @"\" + item[2];
+
+                // Get icon from file
+                Image img = Image.FromFile(iconfullfilename);
+
+                // Convert Image img to byte array
+                byte[] bArr = imgToByteArray(img);
+
+                Image img1 = byteArrayToImage(bArr);
                 // add the icon path and filename image assigned to iconfullfilename to the ImageList IconList
-                IconList.Images.Add(Image.FromFile(iconfullfilename));
+                IconList.Images.Add(img1);
 
                 // add the name of the icon to the string List IconNames.
                 IconNames.Add(item[1]);
@@ -152,7 +161,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
             } // for loop - Icons - Closed
             // Set LargeImageList for ListView listViewIcons to ImageList IconList
-            listViewIcons.LargeImageList = IconList;
+          //  listViewIcons.LargeImageList = IconList;
             // Set SmallImageList for ListView listViewIcons to ImageList IconList
             listViewIcons.SmallImageList = IconList;
 
@@ -166,7 +175,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 INx++;
             }
 
-            IconList.Dispose();
+           // IconList.Dispose();
             //foreach (string s in source)
             //{
             //    // debugging
@@ -219,8 +228,13 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 selected = listViewIcons.SelectedItems;
                 Console.WriteLine("Text: " + selected[0].Text + " | Name: " + selected[0].Name + " | Index: " + selected[0].Index.ToString());
                 Console.WriteLine("Image Path: " + @prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
-                BMPIcon = new Bitmap(@prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
-                mrngPictureBox1.Image = BMPIcon;
+                //BMPIcon = new Bitmap(@prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
+
+                //MemoryStream mStream = new MemoryStream();
+                //BMPIcon.Save(mStream, ImageFormat.bmp);
+
+                //mrngPictureBox1.Image = BMPIcon;
+
                txtIconName.Text = selected[0].Text;
                 mrngBtnIconDelete.Enabled = true;
                 mrngBtnIconImageChange.Enabled = true;
@@ -285,13 +299,14 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 if (result == DialogResult.Yes)
                 {
                     listViewIcons.Items.Clear();
-                    listViewIcons.Dispose();
-                    Bitmap b = (Bitmap)BMPIcon.Clone();
-                    BMPIcon.Dispose(); // now temp is released
-                    BMPIcon = null;
-                    b.Dispose();
-                    
-                    mrngPictureBox1.Image.Dispose();
+
+                    //listViewIcons.Dispose();
+                   // Bitmap b = (Bitmap)BMPIcon.Clone();
+                  //  BMPIcon.Dispose(); // now temp is released
+                  //  BMPIcon = null;
+                  //  b.Dispose();
+
+                  //  mrngPictureBox1.Image.Dispose();
 
                   //  File.Move(Filedst, Filedst + ".del");
                   //  File.Delete(Filedst + ".del");
@@ -332,6 +347,73 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             mrngBtnIconAdd.Visible = false;
             mrngBtnIconDelete.Visible = false;
             mrngBtnIconSave.Visible = false;
+        }
+        ///// <summary>
+        ///// Returns a Bitmap from the cache which is identified by an id
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public static Bitmap GetBitmap(int id)
+        //{
+        //    MemoryStream ms = null;
+        //    if (images.TryGetValue(id, out ms))
+        //    {
+        //        return (Bitmap)Image.FromStream(ms);
+        //    }
+        //    return null;
+        //}
+        ///// <summary>
+        ///// Adds an Bitmap to the cache
+        ///// </summary>
+        ///// <param name="bitmap"></param>
+        ///// <returns>0 if the Bitmap is null, otherwise a uique id</returns>
+        //public static int Add(Bitmap bitmap)
+        //{
+        //    if (bitmap == null)
+        //    {
+        //        return 0;
+        //    }
+
+        //    recycleLocker.EnterReadLock();
+
+        //    try
+        //    {
+        //        var ms = new MemoryStream();
+        //        bitmap.Save(ms, ImageFormat.Tiff);
+
+        //        // Recycle Id or make new one
+        //        int id;
+        //        if (!recycle.TryDequeue(out id))
+        //        {
+        //            id = Interlocked.Increment(ref currentId);
+        //        }
+
+        //        // this should never be possible to fail
+        //        images.TryAdd(id, ms);
+
+        //        return id;
+        //    }
+        //    finally
+        //    {
+        //        recycleLocker.ExitReadLock();
+        //    }
+        //}
+        //convert image to bytearray
+        public byte[] imgToByteArray(Image img)
+        {
+            using (MemoryStream mStream = new MemoryStream())
+            {
+                img.Save(mStream,ImageFormat.Bmp);
+                return mStream.ToArray();
+            }
+        }
+        //convert bytearray to image
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            using (MemoryStream mStream = new MemoryStream(byteArrayIn))
+            {
+                return Image.FromStream(mStream);
+            }
         }
     }
 }

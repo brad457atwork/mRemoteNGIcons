@@ -222,6 +222,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.mrngBtnIconAdd.TabIndex = 5;
             this.mrngBtnIconAdd.Text = "Add New Icon";
             this.mrngBtnIconAdd.UseVisualStyleBackColor = true;
+            this.mrngBtnIconAdd.Click += new System.EventHandler(this.mrngBtnIconAdd_Click);
             // 
             // mrngBtnIconDelete
             // 

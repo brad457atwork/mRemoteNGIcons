@@ -146,6 +146,10 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 // Get icon from file
                 Image img = Image.FromFile(iconfullfilename);
 
+                //if (img.Width != 16 || img.Height != 16 )
+                //{
+
+                //}
                 // Convert Image img to byte array
                 byte[] bArr = imgToByteArray(img);
 
@@ -413,6 +417,78 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             using (MemoryStream mStream = new MemoryStream(byteArrayIn))
             {
                 return Image.FromStream(mStream);
+            }
+        }
+
+        private void mrngBtnIconAdd_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+
+                InitialDirectory = prefix,
+                Title = "Select new Icon",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "ico",
+                Filter = "icon files (*.ico)|*.ico",
+                FilterIndex = 1,
+                RestoreDirectory = true,
+
+                // Needs to be set to false or file will be locked by OpenFileDialog
+                ReadOnlyChecked = false,
+                ValidateNames = false,
+                ShowReadOnly = true
+            };
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                ListView.SelectedListViewItemCollection selected;
+                selected = null;
+                selected = listViewIcons.SelectedItems;
+
+                string Filesrc = openFileDialog1.FileName;
+                string Filedst = prefix + @"\Icons\" + selected[0].Text + ".ico";
+
+                string message = "Confirm updating icon " + Filedst + " with icon " + Filesrc;
+                string title = "Confirm icon update";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    listViewIcons.Items.Clear();
+
+                    //listViewIcons.Dispose();
+                    // Bitmap b = (Bitmap)BMPIcon.Clone();
+                    //  BMPIcon.Dispose(); // now temp is released
+                    //  BMPIcon = null;
+                    //  b.Dispose();
+
+                    //  mrngPictureBox1.Image.Dispose();
+
+                    //  File.Move(Filedst, Filedst + ".del");
+                    //  File.Delete(Filedst + ".del");
+                    File.Copy(Filesrc, Filedst, true);
+                }
+                else
+                {
+
+                }
+
+                //mrngPictureBox1.Image = BMPIcon;
+
+                Console.WriteLine("Destination Full Path: " + Filedst);
+
+                // debuging
+                Console.Write("Source: " + Filesrc + " | " + "Destination: " + Filedst);
+
+
+                LoadSettings();
+                //mrngPictureBox1.Image = new Bitmap(Filesrc);
+                //File.Copy(Filesrc, Filedst);
+                //textBox1.Text = openFileDialog1.FileName;
             }
         }
     }

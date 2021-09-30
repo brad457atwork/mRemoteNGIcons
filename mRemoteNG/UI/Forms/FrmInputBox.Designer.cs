@@ -31,8 +31,8 @@ namespace mRemoteNG.UI.Forms
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this._Ok = new MrngButton();
-            this.buttonCancel = new MrngButton();
+            this._Ok = new mRemoteNG.UI.Controls.MrngButton();
+            this.buttonCancel = new mRemoteNG.UI.Controls.MrngButton();
             this.textBox = new mRemoteNG.UI.Controls.MrngTextBox();
             this.label = new mRemoteNG.UI.Controls.MrngLabel();
             this.tableLayoutPanel1.SuspendLayout();
@@ -60,7 +60,7 @@ namespace mRemoteNG.UI.Forms
             // 
             // _Ok
             // 
-            this._Ok._mice = MrngButton.MouseState.HOVER;
+            this._Ok._mice = mRemoteNG.UI.Controls.MrngButton.MouseState.OUT;
             this._Ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._Ok.Location = new System.Drawing.Point(125, 55);
             this._Ok.Name = "_Ok";
@@ -72,7 +72,7 @@ namespace mRemoteNG.UI.Forms
             // 
             // buttonCancel
             // 
-            this.buttonCancel._mice = MrngButton.MouseState.HOVER;
+            this.buttonCancel._mice = mRemoteNG.UI.Controls.MrngButton.MouseState.OUT;
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(206, 55);
@@ -87,6 +87,7 @@ namespace mRemoteNG.UI.Forms
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.textBox, 3);
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox.Location = new System.Drawing.Point(3, 27);
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(278, 22);

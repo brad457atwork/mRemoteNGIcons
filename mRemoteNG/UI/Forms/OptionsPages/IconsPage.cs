@@ -33,7 +33,45 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         public override void LoadSettings()
         {
             PrepData("");
+           // PrepANDLoadData("");
 
+        }
+        private void  PrepANDLoadData(string LVSelectedText)
+        {
+            //System.Windows.Forms.ImageList IconList = new ImageList();
+
+            DirectoryInfo dir = new DirectoryInfo(_IconFolder); //change and get your folder
+            int x = 0;
+            foreach (FileInfo file in dir.GetFiles())
+            {
+                //// for some reason the foreach loop starts with a file just named .ico
+                //if (x > 0 ) {
+                try
+                {
+                    IconList.Images.Add(Path.GetFileNameWithoutExtension(file.FullName),Image.FromFile(file.FullName));
+                }
+                catch
+                {
+                    Console.WriteLine("This is not an image file");
+                }
+                //}
+            }
+
+            //// Large Icon
+            //this.listViewIcons.View = View.LargeIcon;
+            //this.IconList.ImageSize = new Size(16, 16);
+            //this.listViewIcons.LargeImageList = this.IconList;
+            //or
+            // Small Icon
+            this.listViewIcons.View = View.List;
+            this.listViewIcons.SmallImageList = IconList;
+
+            for (int j = 0; j < IconList.Images.Count; j++)
+            {
+                ListViewItem item = new ListViewItem();
+                item.ImageIndex = j;
+                this.listViewIcons.Items.Add(item);
+            }
         }
         public void PrepData(string LVSelectedText)
         {
@@ -108,7 +146,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 //Print2DArray(IconRows);
 
                 LoadData(IconRows, LVSelectedText);
-            
+
         }
             /// <summary>This method loads/populates the ListView listViewIcons
             /// with a multidimensional string array generated
@@ -123,11 +161,12 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             public void LoadData(string[,] source, string LVselectedText) {
 
             // Get directory program is running in
-
+            listViewIcons.Items.Clear();
             // Create ImageList IconList
-            System.Windows.Forms.ImageList IconList = new ImageList();
+            //System.Windows.Forms.ImageList IconList = new ImageList();
 
             // Set IconList size to 16x16
+            IconList.Images.Clear();
             IconList.ImageSize = new Size(16, 16);
 
             // Create new string List IconNames to hold the names of the icons.
@@ -164,18 +203,24 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 string iconfullfilename = item[2];
 
                 // Get icon from file
-                Image img = Image.FromFile(iconfullfilename);
+
+                //// Comment out 2021.10.03
+                //Image img = Image.FromFile(iconfullfilename);
+
+                Icon icontest = new Icon(iconfullfilename);
 
                 //if (img.Width != 16 || img.Height != 16 )
                 //{
 
                 //}
-                // Convert Image img to byte array
-                byte[] bArr = imgToByteArray(img);
 
-                Image img1 = byteArrayToImage(bArr);
+                //// Comment out 2021.10.03
+                //// Convert Image img to byte array
+                //byte[] bArr = imgToByteArray(img);
+                //Image img1 = byteArrayToImage(bArr);
+
                 // add the icon path and filename image assigned to iconfullfilename to the ImageList IconList
-                IconList.Images.Add(img1);
+                IconList.Images.Add(icontest);
 
                 // add the name of the icon to the string List IconNames.
                 IconNames.Add(item[1]);
@@ -211,7 +256,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             int LVIndex = listViewIcons.FindItemWithText(LVselectedText).Index;
             //int LVIndex = listViewIcons.Items.IndexOfKey(LVselectedText);
             if (LVIndex > 0) {
-                
+
                 listViewIcons.Items[LVIndex].Selected = true;
             }
         }
@@ -257,13 +302,13 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 selected = null;
                 selected = listViewIcons.SelectedItems;
                 Console.WriteLine("Text: " + selected[0].Text + " | Name: " + selected[0].Name + " | Index: " + selected[0].Index.ToString());
-                Console.WriteLine("Image Path: " + _IconFolder + "\\" + selected[0].Text + ".ico");
+                Console.WriteLine("Image Path: " + _IconFolder  + selected[0].Text + ".ico");
                 //BMPIcon = new Bitmap(@prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
 
                 //MemoryStream mStream = new MemoryStream();
                 //BMPIcon.Save(mStream, ImageFormat.bmp);
 
-                //mrngPictureBox1.Image = BMPIcon;
+                PBIcon.Image = IconList.Images[listViewIcons.Items.IndexOf(listViewIcons.SelectedItems[0])];
 
                txtIconName.Text = selected[0].Text;
                 ButtonIconDelete.Enabled = true;
@@ -328,7 +373,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
 
                 string Filesrc = openFileDialog1.FileName;
-                string Filedst = _IconFolder + "\\" + selected[0].Text + ".ico";
+                string Filedst = _IconFolder + selected[0].Text + ".ico";
 
                 string message = "Confirm updating icon " + Filedst + " with icon " + Filesrc;
                 string title = "Confirm icon update";
@@ -336,19 +381,35 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 DialogResult result = MessageBox.Show(message, title, buttons);
                 if (result == DialogResult.Yes)
                 {
+
+                    //  var item = listViewIcons.SelectedItems[0];
+                    //  var img = IconList.Images[item.ImageIndex];
+                    //img.Save(Filedst);
+
+                    Icon newicon = new Icon(Filesrc);
+                    using (FileStream fs = new FileStream(Filedst, FileMode.Create)) { 
+                        newicon.Save(fs);
+                    }
+                    //newicon.Save(Filedst);
+                    // newicon.Save();
+
+
+                    //Image temp = imageList1.Images[x];
+
+
                     listViewIcons.Items.Clear();
-
+                    //  var f = new Form2();
                     //listViewIcons.Dispose();
-                   // Bitmap b = (Bitmap)BMPIcon.Clone();
-                  //  BMPIcon.Dispose(); // now temp is released
-                  //  BMPIcon = null;
-                  //  b.Dispose();
+                    // Bitmap b = (Bitmap)BMPIcon.Clone();
+                    //  BMPIcon.Dispose(); // now temp is released
+                    //  BMPIcon = null;
+                    //  b.Dispose();
 
-                  //  mrngPictureBox1.Image.Dispose();
+                    //  mrngPictureBox1.Image.Dispose();
 
-                  //  File.Move(Filedst, Filedst + ".del");
-                  //  File.Delete(Filedst + ".del");
-                    File.Copy(Filesrc, Filedst,true);
+                    //  File.Move(Filedst, Filedst + ".del");
+                    //  File.Delete(Filedst + ".del");
+                    //File.Copy(listViewIcons[, Filedst,true);
                 }
                 else
                 {
@@ -484,7 +545,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 selected = listViewIcons.SelectedItems;
 
                 string Filesrc = openFileDialog1.FileName;
-                string Filedst = _IconFolder +  "\\" + selected[0].Text + ".ico";
+                string Filedst = _IconFolder + selected[0].Text + ".ico";
 
                 string message = "Confirm updating icon " + Filedst + " with icon " + Filesrc;
                 string title = "Confirm icon update";

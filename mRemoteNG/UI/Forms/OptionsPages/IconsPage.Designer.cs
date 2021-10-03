@@ -38,7 +38,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.lblIconName = new System.Windows.Forms.Label();
             this.txtIconName = new System.Windows.Forms.TextBox();
             this.lblIconImage = new System.Windows.Forms.Label();
-            this.mrngPictureBox1 = new mRemoteNG.UI.Controls.MrngPictureBox(this.components);
+            this.PBIcon = new mRemoteNG.UI.Controls.MrngPictureBox(this.components);
             this.mrngBtnIconImageChange = new mRemoteNG.UI.Controls.MrngButton();
             this.tableLayoutPanelIconUpdate = new System.Windows.Forms.TableLayoutPanel();
             this.mrngBtnIconAdd = new mRemoteNG.UI.Controls.MrngButton();
@@ -49,7 +49,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.tableLayoutPanel1.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.tableLayoutPanelIconEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mrngPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBIcon)).BeginInit();
             this.tableLayoutPanelIconUpdate.SuspendLayout();
             this.tableLayoutPanelOpenIconsDir.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +110,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.tableLayoutPanelIconEdit.Controls.Add(this.txtIconName, 0, 1);
             this.tableLayoutPanelIconEdit.Controls.Add(this.lblIconImage, 0, 2);
             this.tableLayoutPanelIconEdit.Controls.Add(this.tableLayoutPanelIconUpdate, 0, 4);
-            this.tableLayoutPanelIconEdit.Controls.Add(this.mrngPictureBox1, 1, 2);
+            this.tableLayoutPanelIconEdit.Controls.Add(this.PBIcon, 1, 2);
             this.tableLayoutPanelIconEdit.Controls.Add(this.mrngBtnIconImageChange, 0, 3);
             this.tableLayoutPanelIconEdit.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanelIconEdit.Location = new System.Drawing.Point(0, 0);
@@ -158,15 +158,15 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.lblIconImage.Text = "Icon Image";
             this.lblIconImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // mrngPictureBox1
+            // PBIcon
             // 
-            this.mrngPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mrngPictureBox1.Location = new System.Drawing.Point(98, 134);
-            this.mrngPictureBox1.Name = "mrngPictureBox1";
-            this.mrngPictureBox1.Size = new System.Drawing.Size(26, 26);
-            this.mrngPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.mrngPictureBox1.TabIndex = 3;
-            this.mrngPictureBox1.TabStop = false;
+            this.PBIcon.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PBIcon.Location = new System.Drawing.Point(98, 134);
+            this.PBIcon.Name = "PBIcon";
+            this.PBIcon.Size = new System.Drawing.Size(26, 26);
+            this.PBIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBIcon.TabIndex = 3;
+            this.PBIcon.TabStop = false;
             // 
             // mrngBtnIconImageChange
             // 
@@ -278,7 +278,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.panelRight.ResumeLayout(false);
             this.tableLayoutPanelIconEdit.ResumeLayout(false);
             this.tableLayoutPanelIconEdit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mrngPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBIcon)).EndInit();
             this.tableLayoutPanelIconUpdate.ResumeLayout(false);
             this.tableLayoutPanelOpenIconsDir.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -292,7 +292,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         private System.Windows.Forms.Label lblIconName;
         private System.Windows.Forms.TextBox txtIconName;
         private System.Windows.Forms.Label lblIconImage;
-        private MrngPictureBox mrngPictureBox1;
+        private MrngPictureBox PBIcon;
         private MrngButton mrngBtnIconImageChange;
         private System.ComponentModel.IContainer components;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelIconUpdate;

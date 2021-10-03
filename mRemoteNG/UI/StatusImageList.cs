@@ -46,8 +46,9 @@ namespace mRemoteNG.UI
             if (connectionInfo == null) return "";
             if (connectionInfo is RootPuttySessionsNodeInfo) return "PuttySessions";
             if (connectionInfo is RootNodeInfo) return "Root";
-            if (connectionInfo is ContainerInfo) return "Folder";
-
+            ////  2021.09.30 - Brad457 - Comment out to see if it doesn't draw the Folder icon for folders - BEGIN
+            //    if (connectionInfo is ContainerInfo) return "Folder";
+            ////  2021.09.30 - Brad457 - Comment out to see if it doesn't draw the Folder icon for folders - END
             return GetConnectionIcon(connectionInfo);
         }
 

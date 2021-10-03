@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using mRemoteNG.App;
 using mRemoteNG.App.Info;
@@ -25,6 +25,11 @@ namespace mRemoteNG.Connection
             return true;
         }
 
+        /// <summary>
+        /// FromString - Create connection icons from string
+        /// </summary>
+        /// <param name="iconName"></param>
+        /// <returns></returns>
         public static System.Drawing.Icon FromString(string iconName)
         {
             try

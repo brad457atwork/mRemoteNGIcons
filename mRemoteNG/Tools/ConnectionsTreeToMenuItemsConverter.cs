@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using mRemoteNG.App;
@@ -56,7 +57,14 @@ namespace mRemoteNG.Tools
             var nodeAsContainer = node as ContainerInfo;
             if (nodeAsContainer != null)
             {
-                menuItem.Image = Properties.Resources.FolderClosed_16x;
+
+                // Brad457 - 2021.09.30 - THIS is the loop where the folder icon is assigned to the folders.
+                // menuItem.Image = Properties.Resources.FolderClosed_16x;
+                // menuItem.Image = Properties.Resources.FolderClosed_16x;
+                Console.WriteLine("nodeAsContainer.Icon = " + nodeAsContainer.Icon);
+
+             //   Bitmap bitmap = Overlay(Properties.Resources.FolderClosed_16x, nodeAsContainer.Icon);
+                    //Overlay
                 menuItem.Tag = nodeAsContainer;
                 AddSubMenuNodes(nodeAsContainer.Children, menuItem);
             }
@@ -73,6 +81,16 @@ namespace mRemoteNG.Tools
 
             menuItem.MouseUp += MouseUpEventHandler;
             return menuItem;
+        }
+        private static Bitmap Overlay(Icon background, Image foreground)
+        {
+            var result = new Bitmap(background.ToBitmap(), new Size(16, 16));
+            using (var gr = Graphics.FromImage(result))
+            {
+                gr.DrawImage(foreground, new Rectangle(0, 0, foreground.Width, foreground.Height));
+            }
+
+            return result;
         }
     }
 }

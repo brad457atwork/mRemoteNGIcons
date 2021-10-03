@@ -10,7 +10,7 @@ using mRemoteNG.Tree;
 namespace mRemoteNG.Container
 {
     [DefaultProperty("Name")]
-    public class ContainerInfo : ConnectionInfo, INotifyCollectionChanged
+        public class ContainerInfo : ConnectionInfo, INotifyCollectionChanged
     {
         private bool _isExpanded;
 
@@ -217,7 +217,8 @@ namespace mRemoteNG.Container
 
         private void SetDefaults()
         {
-            Name = "New Folder";
+            Name = "BLAH";
+            Icon = "Folder";
             IsExpanded = true;
         }
 

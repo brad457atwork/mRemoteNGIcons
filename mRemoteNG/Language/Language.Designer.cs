@@ -2145,6 +2145,15 @@ namespace mRemoteNG {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Icon Files (*.ico).
+        /// </summary>
+        internal static string FilterIcons {
+            get {
+                return ResourceManager.GetString("FilterIcons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to mRemote CSV Files (*.csv).
         /// </summary>
         internal static string FiltermRemoteCSV {

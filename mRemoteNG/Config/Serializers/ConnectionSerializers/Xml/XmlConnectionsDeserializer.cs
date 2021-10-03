@@ -388,6 +388,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
                 {
                     if (xmlnode.GetAttributeAsBool("Inherit"))
                         connectionInfo.Inheritance.TurnOnInheritanceCompletely();
+                    // connectionInfo.Container = true is folder / false is connection
                     connectionInfo.Icon = xmlnode.GetAttributeAsString("Icon").Replace(".ico", "");
                     connectionInfo.Panel = Language.General;
                 }

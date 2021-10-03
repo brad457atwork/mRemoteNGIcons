@@ -8,13 +8,15 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Imaging;
+using mRemoteNG.App;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {
     public sealed partial class IconsPage
     {
         Bitmap BMPIcon;
-        string prefix = Directory.GetCurrentDirectory();
+        private readonly static string _IconFolderPrefix = App.Info.GeneralAppInfo.HomePath;
+        private readonly string _IconFolder = _IconFolderPrefix + "\\Icons\\";
         System.Windows.Forms.ImageList IconList = new ImageList();
         public IconsPage()
         {
@@ -30,77 +32,95 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         }
         public override void LoadSettings()
         {
-            string root = "Icons";
-
-            // Get a list of all subdirectories
-            IEnumerable<string> files = from file in
-            Directory.EnumerateFiles(root)
-                        select file;
-
-            //Debugging
-            //Console.WriteLine("Files: {0}", files.Count<string>().ToString());
-            //Console.WriteLine("List of Files");
-            //At first we cannot create or delete themes, depends later on the type of selected theme
-            //btnThemeNew.Enabled = false;
-            //btnThemeDelete.Enabled = false;
-            //Load the list of themes
-            //listIcons.Items.Clear();
-
-            // clear ListView listViewIcons of all Items
-            listViewIcons.Items.Clear();
-
-            int filecount = files.Count();
-            string[,] IconRows = new string[filecount,3];
-
-            // IconRows Row Counter
-            int fx = 0;
-            foreach (var file in files)
-            {
-                string[] IconRow = new string[3];
-
-                IconRow[0] = fx.ToString();
-
-                // Fix Icon name being more readable by still removing these things, but then having the file loaded by a reference to the item.
-                //IconRow[1] = Path.GetFileNameWithoutExtension(file).Replace("-","").Replace("_","");
-                IconRow[1] = Path.GetFileNameWithoutExtension(file);
-                IconRow[2] = file;
-
-                // IconsRows Column Counter
-                int fy = 0;
-
-                IconRows[fx, fy] = fx.ToString();
-
-                fy++;
-                // Fix Icon name being more readable by still removing these things, but then having the file loaded by a reference to the item.
-                //IconRows[fx, fy] = Path.GetFileNameWithoutExtension(file).Replace("-", "").Replace("_", "");
-                IconRows[fx, fy] = Path.GetFileNameWithoutExtension(file);
-
-                fy++;
-
-                IconRows[fx, fy] = file;
-
-                fx++;
-
-            }
-
-            // debugging
-            //Print2DArray(IconRows);
-
-            LoadData(IconRows);
+            PrepData("");
 
         }
+        public void PrepData(string LVSelectedText)
+        {
+            LVSelectedText = LVSelectedText.Trim();
+            // See if ListView Index was passed
+            if (!String.IsNullOrEmpty(LVSelectedText)) {
 
-        /// <summary>This method loads/populates the ListView listViewIcons
-        /// with a multidimensional string array generated
-        /// from the icons in the Icons folder.
-        /// <example>For example
-        /// <code>
-        /// string[,] IconRows = new string[x,3];
-        ///   LoadData(IconRows);
-        /// </code>
-        /// </example>
-        /// </summary>
-        public void LoadData(string[,] source) {
+            } else {
+            }
+
+
+
+
+                // Get a list of all subdirectories
+                IEnumerable<string> files = from file in
+                Directory.EnumerateFiles(_IconFolder)
+                                            select file;
+
+                //Debugging
+                //Console.WriteLine("Files: {0}", files.Count<string>().ToString());
+                //Console.WriteLine("List of Files");
+                //At first we cannot create or delete themes, depends later on the type of selected theme
+                //btnThemeNew.Enabled = false;
+                //btnThemeDelete.Enabled = false;
+                //Load the list of themes
+                //listIcons.Items.Clear();
+
+                // clear ListView listViewIcons of all Items
+                listViewIcons.Items.Clear();
+
+                int filecount = files.Count();
+                string[,] IconRows = new string[filecount - 1, 3];
+
+                // IconRows Row Counter
+                int fx = 0;
+                foreach (var file in files)
+                {
+                    string[] IconRow = new string[3];
+
+                    IconRow[0] = fx.ToString();
+
+                    // Fix Icon name being more readable by still removing these things, but then having the file loaded by a reference to the item.
+                    //IconRow[1] = Path.GetFileNameWithoutExtension(file).Replace("-","").Replace("_","");
+                    IconRow[1] = Path.GetFileNameWithoutExtension(file);
+                    IconRow[2] = file;
+
+                    // IconsRows Column Counter
+                    int fy = 0;
+
+                    if (IconRow[1] == "Folder")
+                    {
+                    }
+                    else
+                    {
+
+                        IconRows[fx, fy] = fx.ToString();
+
+                        fy++;
+                        // Fix Icon name being more readable by still removing these things, but then having the file loaded by a reference to the item.
+                        //IconRows[fx, fy] = Path.GetFileNameWithoutExtension(file).Replace("-", "").Replace("_", "");
+                        IconRows[fx, fy] = Path.GetFileNameWithoutExtension(file);
+
+                        fy++;
+
+                        IconRows[fx, fy] = file;
+
+                        fx++;
+                    }
+                }
+
+                // debugging
+                //Print2DArray(IconRows);
+
+                LoadData(IconRows, LVSelectedText);
+            
+        }
+            /// <summary>This method loads/populates the ListView listViewIcons
+            /// with a multidimensional string array generated
+            /// from the icons in the Icons folder.
+            /// <example>For example
+            /// <code>
+            /// string[,] IconRows = new string[x,3];
+            ///   LoadData(IconRows);
+            /// </code>
+            /// </example>
+            /// </summary>
+            public void LoadData(string[,] source, string LVselectedText) {
 
             // Get directory program is running in
 
@@ -141,7 +161,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 Console.WriteLine(item[0] + " - " + item[1] + " - " + item[2]);
 
                 // assign full path and filename for the icon to string iconfullfilename
-                string iconfullfilename = @prefix + @"\" + item[2];
+                string iconfullfilename = item[2];
 
                 // Get icon from file
                 Image img = Image.FromFile(iconfullfilename);
@@ -179,7 +199,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 INx++;
             }
 
-           // IconList.Dispose();
+            // IconList.Dispose();
             //foreach (string s in source)
             //{
             //    // debugging
@@ -188,6 +208,12 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             ////listIcons.Items.Add(s[x][0].ToString(), s[x][1].ToString(), s[x][2].ToString());
 
             //}
+            int LVIndex = listViewIcons.FindItemWithText(LVselectedText).Index;
+            //int LVIndex = listViewIcons.Items.IndexOfKey(LVselectedText);
+            if (LVIndex > 0) {
+                
+                listViewIcons.Items[LVIndex].Selected = true;
+            }
         }
 
         public static void Print2DArray<T>(T[,] matrix)
@@ -231,7 +257,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 selected = null;
                 selected = listViewIcons.SelectedItems;
                 Console.WriteLine("Text: " + selected[0].Text + " | Name: " + selected[0].Name + " | Index: " + selected[0].Index.ToString());
-                Console.WriteLine("Image Path: " + @prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
+                Console.WriteLine("Image Path: " + _IconFolder + "\\" + selected[0].Text + ".ico");
                 //BMPIcon = new Bitmap(@prefix + @"\" + @"Icons\" + selected[0].Text + ".ico");
 
                 //MemoryStream mStream = new MemoryStream();
@@ -240,7 +266,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 //mrngPictureBox1.Image = BMPIcon;
 
                txtIconName.Text = selected[0].Text;
-                mrngBtnIconDelete.Enabled = true;
+                ButtonIconDelete.Enabled = true;
                 mrngBtnIconImageChange.Enabled = true;
                 mrngBtnIconSave.Enabled = true;
 
@@ -248,7 +274,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 tableLayoutPanelIconEdit.Visible = true;
             } else
             {
-                mrngBtnIconDelete.Enabled = false;
+                ButtonIconDelete.Enabled = false;
                 mrngBtnIconImageChange.Enabled = false;
                 mrngBtnIconSave.Enabled = true;
 
@@ -266,10 +292,13 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
         private void mrngBtnIconImageChange_Click(object sender, EventArgs e)
         {
+            //int LVselected;
+
+            string LVselectedText = "";
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
 
-                InitialDirectory = prefix,
+                InitialDirectory = _IconFolder,
                 Title = "Select new Icon",
 
                 CheckFileExists = true,
@@ -283,7 +312,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 // Needs to be set to false or file will be locked by OpenFileDialog
                 ReadOnlyChecked = false,
                 ValidateNames = false,
-                ShowReadOnly = true
+                ShowReadOnly = false
             };
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -292,9 +321,14 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 ListView.SelectedListViewItemCollection selected;
                 selected = null;
                 selected = listViewIcons.SelectedItems;
+                // Assign index
+                //LVselected = selected.IndexOfKey(selected[0].Text);
+
+                LVselectedText = selected[0].Text;
+
 
                 string Filesrc = openFileDialog1.FileName;
-                string Filedst = prefix + @"\Icons\" + selected[0].Text + ".ico";
+                string Filedst = _IconFolder + "\\" + selected[0].Text + ".ico";
 
                 string message = "Confirm updating icon " + Filedst + " with icon " + Filesrc;
                 string title = "Confirm icon update";
@@ -325,11 +359,11 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
                 Console.WriteLine("Destination Full Path: " + Filedst);
 
-                // debuging
+                // debugging
                 Console.Write("Source: " + Filesrc + " | " + "Destination: " + Filedst);
 
 
-                LoadSettings();
+                PrepData(LVselectedText);
                 //mrngPictureBox1.Image = new Bitmap(Filesrc);
                 //File.Copy(Filesrc, Filedst);
                 //textBox1.Text = openFileDialog1.FileName;
@@ -349,7 +383,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         private void IconsPage_Load(object sender, EventArgs e)
         {
             mrngBtnIconAdd.Visible = false;
-            mrngBtnIconDelete.Visible = false;
+            ButtonIconDelete.Visible = false;
             mrngBtnIconSave.Visible = false;
         }
         ///// <summary>
@@ -425,7 +459,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
 
-                InitialDirectory = prefix,
+                InitialDirectory =  _IconFolder,
                 Title = "Select new Icon",
 
                 CheckFileExists = true,
@@ -450,7 +484,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 selected = listViewIcons.SelectedItems;
 
                 string Filesrc = openFileDialog1.FileName;
-                string Filedst = prefix + @"\Icons\" + selected[0].Text + ".ico";
+                string Filedst = _IconFolder +  "\\" + selected[0].Text + ".ico";
 
                 string message = "Confirm updating icon " + Filedst + " with icon " + Filesrc;
                 string title = "Confirm icon update";
@@ -489,6 +523,30 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 //mrngPictureBox1.Image = new Bitmap(Filesrc);
                 //File.Copy(Filesrc, Filedst);
                 //textBox1.Text = openFileDialog1.FileName;
+            }
+        }
+
+        private void mrngOpenIconsDir_Click(object sender, EventArgs e)
+        {
+            try
+            {/**
+                using (var browseDialog = new OpenFileDialog())
+                {
+                    browseDialog.Filter = string.Join("|", Language.FilterIcons, "*.ico",
+                                                      Language.FilterAll, "*.*");
+                    if (browseDialog.ShowDialog() != DialogResult.OK)
+                        return;
+                    var selectedItem = _currentlySelectedExternalTools.FirstOrDefault();
+                    if (selectedItem == null)
+                        return;
+                    selectedItem.FileName = browseDialog.FileName;
+                }  **/
+                Process.Start("explorer.exe", _IconFolder);
+            }
+            catch (Exception ex)
+            {
+                Runtime.MessageCollector.AddExceptionMessage("UI.Window.ExternalTools.BrowseButton_Click() failed.",
+                                                             ex);
             }
         }
     }

@@ -195,7 +195,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.tlpMain);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ThemePage";
             this.Size = new System.Drawing.Size(610, 490);
             ((System.ComponentModel.ISupportInitialize)(this.listPalette)).EndInit();

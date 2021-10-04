@@ -315,6 +315,9 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
                 SelectedNode?.GetTreeNodeType() == TreeNodeType.PuttySession)
                 return;
 
+            // Added to set default Icon for containers to Folder
+            if (newNode.IsContainer == true) { newNode.Icon = "Folder"; }
+
             // the new node will survive filtering if filtering is active
             _connectionTreeSearchTextFilter.SpecialInclusionList.Add(newNode);
 
@@ -323,6 +326,7 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
             DefaultConnectionInfo.Instance.SaveTo(newNode);
             DefaultConnectionInheritance.Instance.SaveTo(newNode.Inheritance);
             var selectedContainer = parentNode as ContainerInfo;
+
             var parent = selectedContainer ?? parentNode?.Parent;
             newNode.SetParent(parent);
             Expand(parent);

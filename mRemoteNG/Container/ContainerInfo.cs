@@ -217,7 +217,8 @@ namespace mRemoteNG.Container
 
         private void SetDefaults()
         {
-            Name = "BLAH";
+            // Folder Name specified here
+            Name = "New Folder";
             Icon = "Folder";
             IsExpanded = true;
         }

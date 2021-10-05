@@ -18,6 +18,9 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         private readonly static string _IconFolderPrefix = App.Info.GeneralAppInfo.HomePath;
         private readonly string _IconFolder = _IconFolderPrefix + "\\Icons\\";
         System.Windows.Forms.ImageList IconList = new ImageList();
+
+
+
         public IconsPage()
         {
             InitializeComponent();

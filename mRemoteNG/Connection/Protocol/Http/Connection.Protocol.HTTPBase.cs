@@ -40,7 +40,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpConnectionFailed, ex);
+                Runtime.MessageCollector.AddExceptionStackTrace(mRemoteNG.Resources.Language.HttpConnectionFailed, ex);
             }
         }
 
@@ -83,7 +83,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpSetPropsFailed, ex);
+                Runtime.MessageCollector.AddExceptionStackTrace(mRemoteNG.Resources.Language.HttpSetPropsFailed, ex);
                 return false;
             }
         }
@@ -106,7 +106,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpConnectFailed, ex);
+                Runtime.MessageCollector.AddExceptionStackTrace(mRemoteNG.Resources.Language.HttpConnectFailed, ex);
                 return false;
             }
         }
@@ -141,7 +141,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpFailedUrlBuild, ex);
+                Runtime.MessageCollector.AddExceptionStackTrace(mRemoteNG.Resources.Language.HttpFailedUrlBuild, ex);
                 return string.Empty;
             }
         }
@@ -154,7 +154,7 @@ namespace mRemoteNG.Connection.Protocol.Http
         {
             if (!e.IsSuccess)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpFailedUrlBuild, e.InitializationException);
+                Runtime.MessageCollector.AddExceptionStackTrace(mRemoteNG.Resources.Language.HttpFailedUrlBuild, e.InitializationException);
             }
         }
 
@@ -194,7 +194,7 @@ namespace mRemoteNG.Connection.Protocol.Http
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionStackTrace(Language.HttpDocumentTileChangeFailed, ex);
+                Runtime.MessageCollector.AddExceptionStackTrace(mRemoteNG.Resources.Language.HttpDocumentTileChangeFailed, ex);
             }
         }
 
@@ -204,10 +204,10 @@ namespace mRemoteNG.Connection.Protocol.Http
 
         public enum RenderingEngine
         {
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.HttpInternetExplorer))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.HttpInternetExplorer))]
             IE = 1,
 
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.HttpCEF))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.HttpCEF))]
             EdgeChromium = 2
         }
 

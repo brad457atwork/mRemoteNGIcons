@@ -17,7 +17,7 @@ namespace mRemoteNG.Tree.Root
         public RootNodeInfo(RootNodeType rootType, string uniqueId)
             : base(uniqueId)
         {
-            _name = Language.Connections;
+            _name = mRemoteNG.Resources.Language.Connections;
             Type = rootType;
         }
 
@@ -28,21 +28,21 @@ namespace mRemoteNG.Tree.Root
 
         #region Public Properties
 
-        [LocalizedAttributes.LocalizedCategory(nameof(Language.Miscellaneous)),
+        [LocalizedAttributes.LocalizedCategory(nameof(mRemoteNG.Resources.Language.Miscellaneous)),
          Browsable(true),
-         LocalizedAttributes.LocalizedDefaultValue(nameof(Language.Connections)),
-         LocalizedAttributes.LocalizedDisplayName(nameof(Language.Name)),
-         LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionName))]
+         LocalizedAttributes.LocalizedDefaultValue(nameof(mRemoteNG.Resources.Language.Connections)),
+         LocalizedAttributes.LocalizedDisplayName(nameof(mRemoteNG.Resources.Language.Name)),
+         LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.PropertyDescriptionName))]
         public override string Name
         {
             get => _name;
             set => _name = value;
         }
         
-        [LocalizedAttributes.LocalizedCategory(nameof(Language.Miscellaneous)),
+        [LocalizedAttributes.LocalizedCategory(nameof(mRemoteNG.Resources.Language.Miscellaneous)),
          Browsable(true),
-         LocalizedAttributes.LocalizedDisplayName(nameof(Language.PasswordProtect)),
-         LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionPasswordProtect)),
+         LocalizedAttributes.LocalizedDisplayName(nameof(mRemoteNG.Resources.Language.PasswordProtect)),
+         LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.PropertyDescriptionPasswordProtect)),
          TypeConverter(typeof(MiscTools.YesNoTypeConverter))]
         public new bool Password { get; set; }
 

@@ -12,10 +12,10 @@ namespace mRemoteNG.Tree.Root
 
         public RootPuttySessionsNodeInfo() : base(RootNodeType.PuttySessions)
         {
-            _name = Language.PuttySavedSessionsRootName;
+            _name = mRemoteNG.Resources.Language.PuttySavedSessionsRootName;
             _panel =
                 string.IsNullOrEmpty(Settings.Default.PuttySavedSessionsPanel)
-                    ? Language.General
+                    ? mRemoteNG.Resources.Language.General
                     : Settings.Default.PuttySavedSessionsPanel;
         }
 
@@ -29,9 +29,9 @@ namespace mRemoteNG.Tree.Root
             //Settings.Default.PuttySavedSessionsName = value;
         }
 
-        [LocalizedAttributes.LocalizedCategory(nameof(Language.Display)),
-         LocalizedAttributes.LocalizedDisplayName(nameof(Language.Panel)),
-         LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionPanel))]
+        [LocalizedAttributes.LocalizedCategory(nameof(mRemoteNG.Resources.Language.Display)),
+         LocalizedAttributes.LocalizedDisplayName(nameof(mRemoteNG.Resources.Language.Panel)),
+         LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.PropertyDescriptionPanel))]
         public override string Panel
         {
             get => _panel;

@@ -275,17 +275,17 @@ namespace mRemoteNG.Connection
             }
             catch (Exception ex)
             {
-                Runtime.MessageCollector.AddExceptionMessage(Language.ConnectionSetDefaultPortFailed, ex);
+                Runtime.MessageCollector.AddExceptionMessage(mRemoteNG.Resources.Language.ConnectionSetDefaultPortFailed, ex);
                 return 0;
             }
         }
 
         private void SetTreeDisplayDefaults()
         {
-            Name = Language.NewConnection;
+            Name = mRemoteNG.Resources.Language.NewConnection;
             Description = Settings.Default.ConDefaultDescription;
             Icon = Settings.Default.ConDefaultIcon;
-            Panel = Language.General;
+            Panel = mRemoteNG.Resources.Language.General;
         }
 
         private void SetConnectionDefaults()

@@ -62,7 +62,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             catch (Exception ex)
             {
                 Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
-                                                    Language.VncSetPropsFailed + Environment.NewLine + ex.Message,
+                                                    mRemoteNG.Resources.Language.VncSetPropsFailed + Environment.NewLine + ex.Message,
                                                     true);
                 return false;
             }
@@ -79,7 +79,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             catch (Exception ex)
             {
                 Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
-                                                    Language.ConnectionOpenFailed + Environment.NewLine +
+                                                    mRemoteNG.Resources.LanguageConnectionOpenFailed + Environment.NewLine +
                                                     ex.Message);
                 return false;
             }
@@ -96,7 +96,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             catch (Exception ex)
             {
                 Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
-                                                    Language.VncConnectionDisconnectFailed + Environment.NewLine +
+                                                    mRemoteNG.Resources.LanguageVncConnectionDisconnectFailed + Environment.NewLine +
                                                     ex.Message, true);
             }
         }
@@ -119,7 +119,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             catch (Exception ex)
             {
                 Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
-                                                    Language.VncSendSpecialKeysFailed + Environment.NewLine +
+                                                    mRemoteNG.Resources.LanguageVncSendSpecialKeysFailed + Environment.NewLine +
                                                     ex.Message, true);
             }
         }
@@ -134,7 +134,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             catch (Exception ex)
             {
                 Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
-                                                    Language.VncToggleSmartSizeFailed + Environment.NewLine +
+                                                    mRemoteNG.Resources.LanguageVncToggleSmartSizeFailed + Environment.NewLine +
                                                     ex.Message, true);
             }
         }
@@ -148,7 +148,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             catch (Exception ex)
             {
                 Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
-                                                    Language.VncToggleViewOnlyFailed + Environment.NewLine +
+                                                    mRemoteNG.Resources.LanguageVncToggleViewOnlyFailed + Environment.NewLine +
                                                     ex.Message, true);
             }
         }
@@ -173,7 +173,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             catch (Exception ex)
             {
                 Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
-                                                    Language.VncRefreshFailed + Environment.NewLine + ex.Message,
+                                                    mRemoteNG.Resources.LanguageVncRefreshFailed + Environment.NewLine + ex.Message,
                                                     true);
             }
         }
@@ -197,7 +197,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
             catch (Exception ex)
             {
                 Runtime.MessageCollector.AddMessage(Messages.MessageClass.ErrorMsg,
-                                                    Language.VncSetEventHandlersFailed + Environment.NewLine +
+                                                    mRemoteNG.Resources.LanguageVncSetEventHandlersFailed + Environment.NewLine +
                                                     ex.Message, true);
             }
         }
@@ -289,7 +289,7 @@ namespace mRemoteNG.Connection.Protocol.VNC
 
         public enum Compression
         {
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.NoCompression))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.NoCompression))]
             CompNone = 99,
             [Description("0")] Comp0 = 0,
             [Description("1")] Comp1 = 1,
@@ -317,44 +317,44 @@ namespace mRemoteNG.Connection.Protocol.VNC
 
         public enum AuthMode
         {
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.Vnc))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.Vnc))]
             AuthVNC,
 
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.Windows))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.Windows))]
             AuthWin
         }
 
         public enum ProxyType
         {
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.None))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.None))]
             ProxyNone,
 
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.Http))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.Http))]
             ProxyHTTP,
 
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.Socks5))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.Socks5))]
             ProxySocks5,
 
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.UltraVncRepeater))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.UltraVncRepeater))]
             ProxyUltra
         }
 
         public enum Colors
         {
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.Normal))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.Normal))]
             ColNormal,
             [Description("8-bit")] Col8Bit
         }
 
         public enum SmartSizeMode
         {
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.NoSmartSize))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.NoSmartSize))]
             SmartSNo,
 
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.Free))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.Free))]
             SmartSFree,
 
-            [LocalizedAttributes.LocalizedDescription(nameof(Language.Aspect))]
+            [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.Aspect))]
             SmartSAspect
         }
 

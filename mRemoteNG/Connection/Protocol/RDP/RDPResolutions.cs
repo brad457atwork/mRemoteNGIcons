@@ -6,13 +6,13 @@ namespace mRemoteNG.Connection.Protocol.RDP
 {
     public enum RDPResolutions
     {
-        [LocalizedAttributes.LocalizedDescription(nameof(Language.FitToPanel))]
+        [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.FitToPanel))]
         FitToWindow,
 
-        [LocalizedAttributes.LocalizedDescription(nameof(Language.Fullscreen))]
+        [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.Fullscreen))]
         Fullscreen,
 
-        [LocalizedAttributes.LocalizedDescription(nameof(Language.SmartSize))]
+        [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.SmartSize))]
         SmartSize,
         [Description("800x600")] Res800x600,
         [Description("1024x768")] Res1024x768,

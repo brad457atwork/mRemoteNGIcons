@@ -5,13 +5,13 @@ namespace mRemoteNG.Connection.Protocol.RDP
 {
     public enum AuthenticationLevel
     {
-        [LocalizedAttributes.LocalizedDescription(nameof(Language.AlwaysConnectEvenIfAuthFails))]
+        [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.AlwaysConnectEvenIfAuthFails))]
         NoAuth = 0,
 
-        [LocalizedAttributes.LocalizedDescription(nameof(Language.DontConnectWhenAuthFails))]
+        [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.DontConnectWhenAuthFails))]
         AuthRequired = 1,
 
-        [LocalizedAttributes.LocalizedDescription(nameof(Language.WarnIfAuthFails))]
+        [LocalizedAttributes.LocalizedDescription(nameof(mRemoteNG.Resources.Language.WarnIfAuthFails))]
         WarnOnFailedAuth = 2
     }
 }

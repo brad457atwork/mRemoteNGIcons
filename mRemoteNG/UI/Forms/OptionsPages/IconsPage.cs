@@ -23,7 +23,6 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
         public IconsPage()
         {
-
             InitializeComponent();
             ApplyTheme();
             PageIcon = Resources.ImageConverter.GetImageAsIcon(Properties.Resources.SearchAndApps_16x);

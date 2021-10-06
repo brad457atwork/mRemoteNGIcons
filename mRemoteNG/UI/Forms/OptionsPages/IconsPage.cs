@@ -23,6 +23,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
         public IconsPage()
         {
+
             InitializeComponent();
             ApplyTheme();
             PageIcon = Resources.ImageConverter.GetImageAsIcon(Properties.Resources.SearchAndApps_16x);
@@ -390,7 +391,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                     //img.Save(Filedst);
 
                     Icon newicon = new Icon(Filesrc);
-                    using (FileStream fs = new FileStream(Filedst, FileMode.Create)) { 
+                    using (FileStream fs = new FileStream(Filedst, FileMode.Create)) {
                         newicon.Save(fs);
                     }
                     //newicon.Save(Filedst);
